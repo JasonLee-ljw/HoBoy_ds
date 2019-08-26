@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>HoBoy电商网站--服饰</title>
+    <link rel="stylesheet" href="../css/main/common.css" type="text/css">
+    <link rel="stylesheet" href="../css/main/product/product.css" type="text/css">
+</head>
+<body>
+    <div class="wrap">
+        <!-- 顶部条 -->
+        <div class="commu main-1">
+            <header class="head_Bar">
+                <span class="welcome">hi~ 欢迎来到HoBoy</span>
+                <div class="user_Admin" id="user_Admin1">
+                    <ul class="user_Item" >
+                        <li><a href="javascript:;" class="register" data-id="register_openOrClose">登录</a></li>
+                        <li><a href="javascript:;" class="login" data-id="login_openOrClose">注册</a></li>
+                        <li><a href="javascript:;" class="exit isShow" >退出</a></li>
+                    </ul>
+                    <div class="collect_shopCar">
+                        <a href="javascript:;" class="collect">收藏夹</a>
+                        <a href="../shopCar/shopcar.html" class="shopCar">购物车</a>
+                    </div>
+                </div>
+            </header>
+        </div>
+        <!-- 搜索栏 -->
+        <div class="commu  main-2">
+            <div class="seach_Bar">
+                <div class="logo">
+                    <img src="../images/logo.png" alt="HoBoy">
+                </div>
+                <div class="seach">
+                    <input type="text"  placeholder="请输入你要搜索的内容..." class="seach_box" />
+                    <input type="button"  class="seach_button">
+                </div>
+            </div>   
+        </div>
+        <!--导航菜单-->
+        <div class="commu main-3">
+            
+            <!--当前路径示意-->
+            <div class="current_router current_router-commodityDetail">
+                <dl>
+                    <span>当前位置&nbsp;:</span>
+                    <dt><a href="../index.html">首页&nbsp;&gt;</a></dt>
+                    <dt><a href="../product/hot.html">服饰&nbsp;&gt;</a></dt>
+                    <dt><a href="../product/cloths.html">上装&nbsp;&gt;</a></dt>
+                    <dt><a href="javascript:;">长安少年系列男子短袖文化衫</a></dt>
+                </dl>
+            </div>
+            
+            <!--商品详情-->
+            <div class="commodityDetail_wrap" id="commodities_wrap">
+                <div class="commodityPhoto_wrap" >
+                    <div class="commodityMiddlePhoto_wrap"  id="middlePhoto_wrap">
+                        <div class="commodityMiddlePhoto_wrap-1">
+                            <div class="commodityMiddlePhoto_wrap-2" id="commodityMiddlePhoto_wrap-control">
+                                <img src="../images/product/cloths/photoDetail/{{photoName-middle}}.jpg" alt="{{alt}}" id="middlePhoto">
+                            </div>    
+                        </div>    
+                    </div>
+                    <div class="commoditySmallPhoto_wrap">
+                        <img src="../images/product/cloths/photoDetail/{{photoName-small}}.jpg" alt="{{alt}}-small" title="{{alt}}-small" data-id="middleFront">
+                        <img src="../images/product/cloths/photoDetail/{{photoName-small1}}.jpg" alt="{{alt}}-small" title="{{alt}}-small" data-id="middleBack">
+                    </div>
+                    <div class="transparent" data-id="bigGlass"></div>
+                    <div class="queeze isShow" id="bigGlass"></div>
+                </div>
+                
+                
+
+                <!--商品正面大图-->
+                <div class="commodityBigPhoto_wrap isShow" id="bigPhoto_wrap" >
+                        <div class="commodityBigPhoto_wrap-1">
+                            <div class="commodityBigPhoto_item" id="bigPhoto_move">
+                                <img src="../images/product/cloths/photoDetail/{{photoName-big}}.jpg" id="bigPhoto">
+                            </div>
+                        </div> 
+                </div>
+                <div class="commodityMessage_wrap">
+                    <h2>{{title}}</h2>
+                    <div class="commodityPrice">
+                        <dl>
+                            <dt>促销价：{{price}}</dt><br>
+                            <dt>领&nbsp;&nbsp;劵：&nbsp;
+                                <dd><a href="javascript:;"></a></dd>
+                                <dd><a href="javascript:;"></a></dd>
+                                <dd><a href="javascript:;"></a></dd>
+                            </dt>
+                        </dl>
+                    </div>
+                    <div class="commodityStyle">
+                        <dl>
+                            <dt id="commodityColorSelect">颜&nbsp;&nbsp;色:&nbsp;
+                                <dd><a href="javascript:;" class='commodityColor' data-id="commodityColor-black" style="border: 2px solid #000000"><img src="../images/product/cloths/photoDetail/{{photoName-mostsmall}}.jpg" alt=""><span>标准黑</span></a></dd>
+                                <dd><a href="javascript:;" class='commodityColor' data-id="commodityColor-zong"><img src="../images/product/cloths/photoDetail/{{photoName-mostsmall_zong}}.jpg" alt=""><span>琥珀棕</span></a></dd>
+                            </dt><br>
+                            <dt>尺&nbsp;&nbsp;码:&nbsp;
+                                <dd><a href="javascript:;"><span>M</span></a></dd>
+                                <dd><a href="javascript:;"><span>L</span></a></dd>
+                                <dd><a href="javascript:;"><span>XL</span></a></dd>
+                                <dd><a href="javascript:;"><span>XXL</span></a></dd>
+                                <dd><a href="javascript:;"><span>XXXL</span></a></dd>
+                            </dt><br>
+                            <dt>数&nbsp;&nbsp;量:
+                                <button value="—">-</button>
+                                <input type="text" placeholder="0">
+                                <button style="color:#000000">+</button>
+                            </dt>
+                        </dl>
+                    </div>
+                    <div class="commodityShop">
+                        <div class="commodityShopCar">
+                            <a href="javascript:;" title="加入购物车"><img src="../images/shopCar1.png" alt=""><span>加入购物车</span></a>
+                            <a href="javascript:;" title="加入收藏夹"><img src="../images/collect.png" alt=""><span>收&nbsp;&nbsp;藏</span></a>
+                        </div>
+                        <dl>
+                            <span>分&nbsp;&nbsp;享：</span>
+                            <dt><a href="javscript:;" title="分享至微博" class="commodityShare"><img src="../images/weibo.png" alt="微博"></a></dt>
+                            <dt><a href="javscript:;" title="分享至微信" class="commodityShare"><img src="../images/weixin.png" alt="微信"></a></dt>
+                            <dt><a href="javscript:;" title="分享至QQ" class="commodityShare"><img src="../images/qq.png" alt="QQ"></a></dt>
+                        </dl>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        
+        
+        
+    </div>
+    <!--登录-->
+    <div class="registerAndLogin register_wrap isShow" id="register_openOrClose">
+        <div class="registerAndLogin_panel register_panel">
+            <header id="register_panelHead">
+                <h2>用户登录</h2>
+                <span data-id="register_openOrClose"></span>
+            </header>
+            <section class="registerAndLogin_data register_data">
+                <!--用户登录信息-->
+                <div class="registerAndLogin_input users_input">
+                    <div class="users_message">
+                        <input type="text" placeholder="请输入会员号/用户名/手机号登录" id="userName_text">
+                        <input type="password" placeholder="请输入密码..." class="password">
+                        <div class="phone_code-wrap isShow" id="isShow-item">
+                            <input type="text" placeholder="请输入手机动态验证码" class="phone_code-input">
+                            <input type="button" value="获取短信验证码" class="phone_btn ">
+                        </div>
+                        
+                    </div>
+                    <div class="vertify_code">
+                        <input type="text" placeholder="请输入右侧验证码..." class="code-input">
+                        <div class="vertify_code-wrap">
+                            <ul class="vertify_code-item">
+                                <li><a href="javascript:;"><img src="../images/ValidateCode.jpg" alt="请刷新页面" /></a></li>
+                            </ul>  
+                        </div>
+                        <span title="刷新"></span>
+                    </div>
+                    <div class="password-operation" id="phoneOrPassword_control">
+                        <input type="checkbox">记住密码
+                        <a href="javascript:;">忘记密码？</a>
+                        <a href="javascript:;" class="selectForPhone phoneOrPassword" data-id="isShow-item">手机验证码登录</a>
+                        <a href="javascript:;" class="selectForPassword phoneOrPassword isShow" data-id="isShow-item">密码登录</a>
+                    </div>
+                    <div class="btn-wrap">
+                        <a href="javascript:;" class="btn-register" data-id="login_openOrClose">登&nbsp;录</a>
+                        <a href="javascript:;" class="btn_login" data-id="login_openOrClose">注&nbsp;册</a>
+                    </div>
+                </div>
+                <div class="other_register">
+                    <a href="javascript:;" title="微信登录"><img src="../images/weixin.png" alt="微信"></a>
+                    <a href="javascript:;" title="微博登录"><img src="../images/weibo.png" alt="微博"></a>
+                    <a href="javascript:;" title="QQ登录"><img src="../images/qq.png" alt="QQ"></a>
+                    <h6>---&nbsp;第三方平台登录&nbsp;---</h6>
+                </div>
+            </section>
+        </div>
+    </div> 
+    <!--新用户注册-->
+    <div class="registerAndLogin login_wrap isShow" id="login_openOrClose">
+        <div class="registerAndLogin_panel login_panel">
+            <header id="login_panelHead">
+                <h2>新用户注册</h2>
+                <span data-id="login_openOrClose"></span>
+            </header>
+            <section class="registerAndLogin_data login_data">
+                <!--注册用户信息填写-->
+                <h3>用户信息填写</h3>
+                <div class="user_common user_name">
+                    <span>用户名*</span>
+                    <input type="text" placeholder="请输入用户名">
+                </div>
+                <div class="user_common user_email">
+                    <span>邮箱*</span>
+                    <input type="text" placeholder="请输入邮箱">
+                </div>
+                <div class="user_common user_password">
+                    <span>密码*</span>
+                    <input type="text" placeholder="请输入密码">
+                </div>
+                <div class="user_common user_password">
+                    <span>确认密码*</span>
+                    <input type="text" placeholder="请再输入一次密码">
+                </div>
+                <div class="user_common user_number">
+                    <span>手机号*</span>
+                    <input type="text" placeholder="请输入手机号">
+                </div>
+                <div class="user_common user_taxCode">
+                    <span>短信验证码*</span>
+                    <input type="text" placeholder="请输入短信验证码">
+                    <a href="javascript:;">获取短信验证码</a>
+                </div>
+                <div class="user_common vertify_code">
+                    <span>图形验证码*</span>
+                    <input type="text" placeholder="请输入右侧验证码..." class="code-input">
+                    <div class="vertify_code-wrap">
+                        <ul class="vertify_code-item">
+                            <li><a href="javascript:;"><img src="../images/ValidateCode.jpg" alt="请刷新页面" /></a></li>
+                        </ul>  
+                    </div>
+                    <span class="login_code" title="刷新"></span>
+                </div>
+                <div class="clause">
+                    <input type="checkbox">阅读完毕，接受公约条款*
+                </div>
+                <div class="login_submit" id="phoneOrPassword_control">
+                    <a href="javascript:;" >确认提交</a>
+                </div>
+            </section>
+        </div>
+    </div> 
+    <script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+    <script src="../js/require.js" data-main="../js/main"></script>
+    <script src="../js/listenEvent.js"></script>
+</body>
+</html>

@@ -1,0 +1,211 @@
+/*结算流程示意*/
+.shopCar_wrap{
+    width: 100%;
+    position: relative;
+    background-color: #ffffff;
+}
+
+.shopCar_wrap .account_process,
+.shopCar_wrap .shopCar_detail{
+    width: 1100px;
+    height: 150px;
+    position: relative;
+    margin: 0 auto;
+}
+
+.shopCar_wrap .account_process img{
+    width: 200px;
+    height: 75px;
+    position: absolute;
+    left: 0;
+    top: 50%;
+    margin-top: -35px;
+}
+
+.shopCar_wrap .account_process .account_process-item{
+    display: inline-block;
+    width: 520px;
+    height: 75px;
+    position: relative;
+    margin-left: 500px;
+    margin-top: 30px;
+    
+}
+
+.account_process .account_process-item li{
+    width: 120px;
+    height: 100%;
+    display: inline-block;
+    margin-right: 35px;
+}
+
+.account_process .account_process-item .process_line{
+    width: 500px;
+    position: absolute;
+    right:50px;
+    top: 43px;
+}
+
+.account_process .account_process-item .process_text{
+    position: absolute;
+    width: 450px;
+    right: 70px;
+    top: 50px;
+    padding-top: 15px;
+    border-top: 3px solid #b5b5b5;
+}
+
+.account_process .process_line li{
+    width: 15px;
+    height: 15px;
+    border-radius: 15px;
+    margin-right: 200px;
+    background-color: #b5b5b5;
+    z-index: 9;
+}
+
+.account_process  li:last-child{
+    margin-right: 0;
+}
+
+.account_process .process_text li:nth-child(1){
+    margin-left: -10px;
+    text-align: left;
+}
+.account_process .process_text li:nth-child(2){
+    text-align: center;
+}
+.account_process .process_text li:nth-child(3){
+    text-align: right;
+}
+
+/*所选商品详情*/
+.shopCar_wrap .shopCar_detail{
+    height: 100%;
+}
+
+.shopCar_detail .shopCar_detailNav{
+    width: 100%;
+    height: 50px;
+    line-height: 50px;
+    background-color: rgba(121, 121, 121, 0.5);
+}
+
+.shopCar_detail li{
+    width: 120px;
+    height: 100%;
+    text-align: center;
+    font-size: 18px;
+    display: inline-block;
+}
+
+.shopCar_detail li:first-child{
+    width: 350px;
+    margin-right: 80px;
+}
+
+.shopCar_detailNav li:not(:first-child)::before{
+    content: '';
+    height: 30px;
+    margin-right: 40px;
+    border: 1px solid #ffffff;
+}
+
+.shopCar_detail .commodity_contents{
+    width: 100%;
+    height: 150px;
+    margin-top: 10px;
+    position: relative;
+    background-color: #e6e6e6;
+}
+
+.commodity_contents input:first-child,
+.commodity_account input{
+    width: 15px;
+    height: 15px;
+    vertical-align: middle;
+}
+
+.shopCar_detail .commodity_contents .commodity_contents-1{
+    width: 450px;
+    height: 120px;
+    position: relative;
+    margin-top: 20px;
+    margin-left: -35px;
+}
+
+.commodity_contents .commodity_contents-1 div{
+    display: inline-block;
+}
+
+.commodity_contents .commodity_contents-1 span{
+    display: inline-block;
+    font-size: 16px;
+    font-weight: 500;
+    color: #000000;
+    margin-top: 10px;
+}
+
+.commodity_contents .commodity_contents-1 img{
+    vertical-align: middle;
+}
+
+.commodity_contents li:last-child a{
+    display: block;
+    line-height: 30px;
+    color: #000000;
+    font-size: 16px;
+    text-align: left;
+}
+
+.shopCar_detail .commodity_account{
+    width: 100%;
+    height: 100px;
+    margin-top: 25px;
+    position: relative;
+    
+}
+
+.shopCar_detail .commodity_account ul,
+.shopCar_detail .commodity_account div{
+    height: 50px;
+    line-height: 50px;
+    position: absolute;
+}
+
+.shopCar_detail .commodity_account div{
+    right: 45px;
+    top: 0;
+}
+
+.shopCar_detail .commodity_account div span{
+    font-size: 18px;
+}
+
+.shopCar_detail .commodity_account ul{
+    width: 100%;
+    left: 0;
+    bottom: 0;
+    background-color: #e6e6e6;
+}
+
+.shopCar_detail .commodity_account .commodity_op{
+    display: inline-block;
+    font-size: 16px;
+    color: #1253fa;
+}
+
+.shopCar_detail .commodity_account .AllselectOrDelete{
+    width: 50%;
+    font-size: 14px;
+    float: left;
+    text-align: left;
+    padding-left: 60px;
+}
+.shopCar_detail .commodity_account .shopOrAccount{
+    width: 184px;
+    float: right;
+    text-align: center;
+    margin-left: 5px;
+    background-color:rgba(0, 0, 0, .9);
+}

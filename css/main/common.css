@@ -1,0 +1,690 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+body{
+    background-color: #f2f2f2;
+    font-family: "KaiTi";
+}
+.wrap{
+    width: 100%;
+    text-align: center;
+}
+
+/*填充条*/
+.commu{
+    position: relative;
+    margin: 0 auto;
+    width: 1000px;
+}
+.main-1{
+    width: 100%;
+    background-color:rgba(0,0,0,.8);
+}
+.main-2{
+    width: 100%;
+    background-color: #ffffff;
+    z-index: 5;
+}
+
+li{
+    list-style: none;
+}
+a{
+    text-decoration: none;
+    color: #ffffff;;
+    font-weight: 800;
+}
+
+/*顶部条*/
+.head_Bar{
+    position: relative;
+    width: 1100px;
+    height: 25px;
+    margin: 0 auto;
+    line-height: 25px;
+    font-size: 15px;
+    color: #ffffff;
+    font-weight: 600;
+}
+
+.head_Bar .welcome{
+    position: absolute;
+    left: 10px;
+    top: 0;
+}
+
+.head_Bar .user_Admin{
+    position: relative;
+    float: right;
+    width: 260px;
+    margin-right: 30px;
+}
+
+.user_Admin .user_Item{
+    position: absolute;
+    left: -10px;
+    top: 0;
+}
+.user_Admin li{
+    display: inline-block;
+    margin-right: 5px;
+}
+
+.user_Admin .collect_shopCar {
+    position: relative;
+    float: right;
+    width: 120px;
+}
+
+.collect_shopCar .collect{
+    position: absolute;
+    left: -18px;;
+    text-indent: 20px;
+    background: url('../../images/start.png') no-repeat 0 4px; 
+}
+.collect_shopCar .collect::after{
+    content: "";
+    border: .5px solid #b5b5b5;
+    margin-left: 2px;
+}
+.collect_shopCar .shopCar{
+    position: absolute;
+    right: 0;
+    text-indent: 20px;
+    background: url('../../images/shopCar.png') no-repeat 0 3px;
+}
+
+/*搜索栏*/
+.seach_Bar{
+    position: relative;
+    width: 1000px;
+    height: 90px;
+    margin: 0 auto;
+    line-height: 150px; 
+}
+.logo img{
+    position: absolute;
+    left: 80px;
+    top: 0px;
+    width: 80px;
+    height: 80px;
+}
+
+.seach_Bar .seach{
+    width: 500px;
+    height: 80%;
+    display: inline-block;
+    position: relative;
+    margin: 0 auto;
+}
+
+.seach_Bar .seach .seach_box{
+    width: 350px;
+    height: 35px;
+    position: absolute;
+    left: 10%;
+    top: 50%;
+    border-radius: 15px 15px;
+    margin-top: -15px;
+    padding-left: 5px;
+}
+
+.seach_Bar .seach .seach_button{
+    width: 40px;
+    height: 40px;
+    position: absolute;
+    right: 40px;
+    top:50%;
+    margin-top: -16px;
+    background: url('../../images/seach.png') no-repeat 3px 2px;
+}
+
+
+/*导航菜单栏*/
+.main-3{
+    width: 100%;
+    z-index: 999;
+}
+.main_Nav{
+    width: 100%;
+    height: 50px;
+    position: relative;
+    margin: 0 auto;
+    border-top: 1px dashed;
+    border-bottom: 1px dashed;
+    background-color: rgba(255, 255, 255 ,.6);
+}
+
+.main_Nav .main_Nav-item{
+    width: 200px;
+    height: 100%;
+    position: relative;
+    margin-left: 130px;
+}
+
+.main_Nav .main_Nav-item li{
+    display: inline-block;
+    margin-right: 40px;
+}
+
+.main_Nav .main_Nav-item a{
+    display: inline-block;
+    height:50px;
+    line-height: 50px;
+    text-align: center;
+    font-size: 18px;
+    color: #000000;
+    font-weight: 600;
+}
+
+/*图片轮播栏*/
+.photo_Show{
+    width: 750px;
+    height: 370px;
+    position: relative;
+    display: inline-block;
+    margin-left: 210px;
+    margin-top: 10px;
+    z-index: 1;
+}
+
+.photo_Show .photo-item{
+    width: 750px;
+    height: 370px;
+    position: relative;
+    overflow: hidden;
+}
+
+.photo_Show  .photo-item ul{
+    width: 1000%;
+    height: 370px;
+    position: absolute;
+    left: 0;
+    top: 0;
+    transition: all .6 linear;
+}
+
+.photo_Show .photo-item li{
+    float: left;
+}
+
+.photo_Show .main-i img{
+    width: 750px;
+    height: 350px;
+}
+
+.photo_Show .control{
+    position: relative;
+    width: 100%;
+    height: 30px;
+    margin-top: -40px;
+    z-index: 9; 
+}
+
+.photo_Show .control .control-i{
+    width: 80px;
+    height: 10px;
+    background-color: #cccccc;
+    display: inline-block;
+    position: relative;
+}
+
+.photo_Show .control .bgc-black{
+    background-color: rgba(0, 0, 0, .8) !important;
+}
+
+.photo_Show .control .control-i:hover{
+    background-color: #000000;
+    box-shadow: 0 1px 1px rgba(0,0,0,0.5);
+    opacity: 0.6;
+}
+
+.control .active2 {
+    background-color: #000000 !important;
+    box-shadow: 0 1px 1px rgba(0,0,0,0.5);
+    opacity: 0.8;
+}
+
+/*幻灯片切换*/
+.photo_Show .photo-item .main-i img{
+    transition: all 1s ease-out;
+}
+
+.photo_Show .photo-item .main-i .img-i:target{
+    left: 10%;
+    opacity: 1;
+}
+
+/*登录、注册共有样式*/
+.registerAndLogin{
+    width: 100%;
+    height: 200%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 999;
+    background: rgba(255,255,255,0.5);
+    
+}
+
+.isShow{
+    display: none !important;
+}
+.registerAndLogin .registerAndLogin_panel{
+    width: 600px;
+    height: 500px;
+    position: relative;
+    margin: 50px auto;
+    background-color: #ffffff;
+    border: 1px solid;
+}
+
+.registerAndLogin_panel header{
+    width: 90%;
+    height: 50px;
+    line-height: 50px;
+    color: #000000;
+    border-bottom: 1px dashed #cccccc;
+    position: absolute;
+    left: 50%;
+    top: 20px;
+    margin-left: -270px;
+}
+
+.registerAndLogin_panel header span{
+    display: inline-block;
+    width: 25px;
+    height: 25px;
+    cursor: pointer;
+    position: absolute;
+    right: -20px;
+    top: -5px;
+    background: url('../../images/x.png') no-repeat;
+}
+
+.registerAndLogin_data{
+    width: 100%;
+    position: relative;
+    margin: 100px auto;
+}
+
+.registerAndLogin_data .registerAndLogin_input{
+    width: 400px;
+    position: relative;
+    margin: 100px auto;
+    border: 1px solid transparent;
+}
+
+/*登录*/
+.users_input .users_message,
+.users_input .btn-wrap{
+    width: 300px;
+    position: absolute;
+    left: 50%;
+    top: 0;
+    margin-left: -150px;
+}
+
+.users_input .users_message input{
+    width: 100%;
+    height: 30px;
+    padding-left: 5px;
+    margin-bottom: 20px;
+    display: block;
+}
+
+.users_input .users_message .phone_code-wrap{
+    width: 310px;
+    height: 30px;
+    position: absolute;
+    left: 0;
+    top: 53px;
+    display: flex;
+}
+
+.users_message .phone_code-wrap .phone_code-input{
+    height: 31px;
+    padding-left: 5px;
+    flex: 3;
+}
+.users_message .phone_code-wrap .phone_btn{
+    height: 35px;
+    color: #ffffff;
+    letter-spacing: .1em;
+    flex: 2;
+    border: none;
+    background-color: rgba(0, 0, 0, .8);
+}
+
+.registerAndLogin_input .vertify_code{
+    width: 310px;
+    position: relative;
+    margin:110px auto;
+    display: flex;
+}
+
+.users_input .vertify_code .code-input{
+    width: 120px;
+    height: 30px;
+    padding-left: 5px;
+    position: absolute;
+    left: 8px;
+    top: 5px;
+}
+
+.users_input .vertify_code span{
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    margin-top: 10px;
+    cursor: pointer;
+    background: url('../../images/review.png') no-repeat;
+}
+
+.users_input .vertify_code .vertify_code-wrap{
+    width: 130px;
+    height: 40px;
+    display: inline-block;
+    position: relative;
+    margin-left: 170px;
+    overflow: hidden;
+}
+
+.vertify_code .vertify_code-wrap ul{
+    width: 1000%;
+    height: 40px;
+    position: absolute;
+    left: 0;
+    top: 0;
+
+}
+
+.vertify_code .vertify_code-wrap img{
+    width: 110px;
+    height: 38px;
+    position: absolute;
+    left: 0;
+    top: 0;
+    border: 1px solid;
+}
+.users_input .password-operation{
+    position: absolute;
+    right: 25px;
+    top: 160px;
+    font-size: 13px;
+}
+
+.users_input .password-operation a{
+    color: #000000;
+    text-decoration-line: underline;
+}
+
+.users_input .btn-wrap{
+    top: 200px;
+    padding-left: 10px;
+}
+.users_input .btn-wrap a{
+    display: inline-block;
+    width: 45%;
+    height: 40px;
+    font-size: 18px;
+    line-height: 40px;
+    text-align:center;
+    letter-spacing: .5em;
+    color: #ffffff;
+    margin-right: 10px;
+    background-color: rgba(0, 0, 0, .8);
+}
+
+.register_data .other_register{
+    width:500px;
+    position: relative;
+    margin: -80px auto;
+    box-sizing: border-box;
+    padding-left: 120px;
+}
+
+.register_data .other_register a{
+    display: inline-block;
+    width: 45px;
+    height: 45px;
+    margin-right: 60px;
+}
+
+.register_data .other_register h6{
+    width: 140px;
+    margin-left: 65px;
+    margin-top: 10px;
+}
+
+/*注册*/
+.login_wrap .login_panel{
+    height: 700px;
+}
+.login_data{
+    padding-left: 40px;
+}
+
+.login_data .user_common{
+    position: relative;
+    margin-left: 15px;
+    margin-top: 40px;
+}
+
+.login_data .user_common input{
+    width: 230px;
+    height: 30px;
+    padding-left: 5px;
+    position: absolute;
+    left: 130px;
+    top: -10px;
+}
+
+.login_data .user_taxCode,
+.login_data .vertify_code{
+    width: 500px;
+}
+
+.login_data .user_taxCode a{
+    display: inline-block;
+    width: 120px;
+    height: 33px;
+    font-size: 13px;
+    color: #ffffff;
+    text-align: center;
+    line-height: 33px;
+    letter-spacing: .1em;
+    background-color: #000000;
+    position: absolute;
+    left: 370px;
+    top: -10px;
+}
+
+.login_data .vertify_code .vertify_code-wrap{
+    width: 130px;
+    height: 40px;
+    display: inline-block;
+    position: relative;
+    margin-left:370px;
+    margin-top: -30px;
+    overflow: hidden;
+}
+
+.login_data .vertify_code .login_code{
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    right: -10px;
+    top: -12px;
+    margin-top: 10px;
+    cursor: pointer;
+    background: url('../../images/review.png') no-repeat;
+}
+
+.login_data .clause{
+    width: 500px;
+    font-size: 12px;
+    position: absolute;
+    left: 60px;
+    bottom: -40px;
+    border-bottom: 1px dashed #cccccc;
+}
+
+.login_data .login_submit{
+    width: 200px;
+    position: absolute;
+    left: 50%;
+    bottom: -100px;
+    margin-left: -120px;
+    background-color: rgba(0, 0, 0, .8);
+}
+
+.login_data .login_submit a{
+    display: inline-block;
+    width: 100%;
+    height: 100%;
+    font-size: 16px;
+    font-weight: 300;
+    letter-spacing: .2em;
+    line-height: 40px;
+    text-align: center;
+    color: #ffffff
+}
+
+/*热卖榜*/
+.hot_sale{
+    position: relative;
+    width: 1000px;
+    margin-top: 10px;
+}
+
+.hot_sale .hot_photo{
+    display: grid;
+    width: 100%;
+    height: 600px;
+    grid-template-columns:1fr 1fr 1fr 1fr;
+    grid-template-rows: auto ; 
+    grid-template-areas: "first second second three"
+                         "forth second second five"
+                         "six seven eight nine";
+}
+.hot_sale .hot_photo > li.first{
+    grid-area: first;
+}
+
+
+.hot_sale .hot_photo > li.second{
+    width: 500px;
+    height: 380px;
+    grid-area: second;
+    justify-self: center;
+    align-self: center;
+    position: relative;
+    margin-top: -20px;
+}
+
+.hot_photo li div{
+    position: relative;
+    width: 220px;
+    height: 180px;
+    line-height: 30px;
+    margin-top: -185px;
+    margin-left: 15px;
+    background-color:rgba(0, 0, 0, .6);
+    display: none;
+}
+
+.hot_photo li div h3{
+    position: absolute;
+    left: 45px;
+    top: 40px;
+    color: #ffffff;
+    font-weight: 600;
+    
+}
+.hot_photo li div p{
+    color: #ffffff;
+    width: 80%;
+    position: absolute;
+    left: 7%;
+    top: 70px;
+    font-size: 14px;
+    line-height: 18px;
+    word-wrap: break-word;
+}
+
+.hot_photo li div a{
+    display: inline-block;
+    width: 70px;
+    height: 20px;
+    position: absolute;
+    left: 30%;
+    top: 70%;
+    font-size: 14px;
+    line-height: 20px;
+    background-color:#000000;
+}
+
+.hot_photo .second div{
+    position: relative;
+    width: 460px;
+    height: 380px;
+    line-height: 30px;
+    margin-top: -383px;
+    margin-left: 20px;
+    background-color:rgba(0, 0, 0, .6);
+    display: none;
+}
+
+.hot_photo .second div h3{
+    position: absolute;
+    left: 150px;
+    top: 100px;
+    font-size: 24px;
+    color: #ffffff;
+    font-weight: 800;
+}
+.hot_photo .second div p{
+    color: #ffffff;
+    width: 80%;
+    font-size: 22px;
+    position: absolute;
+    left: 8%;
+    top: 150px;
+    font-size: 16px;
+    word-wrap: break-word;
+}
+.hot_photo .second div a{
+    display: inline-block;
+    width: 90px;
+    height: 30px;
+    line-height: 30px;
+    font-size: 16px;
+    position: absolute;
+    left: 40%;
+    top: 70%;
+    background-color:#000000;
+}
+.hot_sale .hot_photo > li.three{
+    grid-area: three;
+}
+.hot_sale .hot_photo > li.forth{
+    grid-area: forth;
+}
+.hot_sale .hot_photo > li.five{
+    grid-area: five;
+}
+.hot_sale .hot_photo > li.six{
+    grid-area: six;
+}
+.hot_sale .hot_photo > li.seven{
+    grid-area: seven;
+}
+.hot_sale .hot_photo > li.eight{
+    grid-area: eight;
+}
+.hot_sale .hot_photo > li.nine{
+    grid-area: nine;
+}
