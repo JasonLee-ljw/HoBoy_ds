@@ -108,31 +108,36 @@ requirejs(['jquery','side_Toolbar','PhotoShow','photoGlass'],function ($,toolbar
     
     //商品详情页面
     $('#commodities_wrap').photoGlass({
-        
         commodityDetail:{
             title:'BADFIVE长安少年系列男子短袖文化衫',
             price:'￥288',
         },
         Blackphoto:[
-            {photoName:'blackT_big',alt:''},
-            {photoName:'blackT_big1',alt:''},
-            {photoName:'blackT_middle',alt:''},
-            {photoName:'blackT_middle1',alt:''},
-            {photoName:'blackT_small',alt:''},
-            {photoName:'blackT_small1',alt:''},
-            {photoName:'blackT_mostsmall',alt:''},
-            {photoName:'zongT_mostsmall',alt:''},
+            {photoName:'b00',alt:''},
+            {photoName:'b01',alt:''},
+            {photoName:'b02',alt:''},
+            {photoName:'b03',alt:''},
+            {photoName:'b10',alt:''},
+            {photoName:'b11',alt:''},
+            {photoName:'b12',alt:''},
+            {photoName:'z00',alt:''},
+            {photoName:'z01',alt:''},
+            {photoName:'z02',alt:''},
+            {photoName:'z03',alt:''},
+            {photoName:'z10',alt:''},
+            {photoName:'z11',alt:''},
+            {photoName:'z12',alt:''},
         ],
-        Zongphoto:[
-            {photoName:'zongT_big',alt:''},
-            {photoName:'zongT_big1',alt:''},
-            {photoName:'zongT_middle',alt:''},
-            {photoName:'zongT_middle1',alt:''},
-            {photoName:'zongT_small',alt:''},
-            {photoName:'zongT_small1',alt:''},
-            {photoName:'blackT_mostsmall',alt:''},
-            {photoName:'zongT_mostsmall',alt:''},
-        ]
+        // Zongphoto:[
+        //     {photoName:'zongT_big',alt:''},
+        //     {photoName:'zongT_big1',alt:''},
+        //     {photoName:'zongT_middle',alt:''},
+        //     {photoName:'zongT_middle1',alt:''},
+        //     {photoName:'zongT_small',alt:''},
+        //     {photoName:'zongT_small1',alt:''},
+        //     {photoName:'blackT_mostsmall',alt:''},
+        //     {photoName:'zongT_mostsmall',alt:''},
+        // ]
             
         
     })

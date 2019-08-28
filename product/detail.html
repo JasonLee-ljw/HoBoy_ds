@@ -59,71 +59,92 @@
                     <div class="commodityMiddlePhoto_wrap"  id="middlePhoto_wrap">
                         <div class="commodityMiddlePhoto_wrap-1">
                             <div class="commodityMiddlePhoto_wrap-2" id="commodityMiddlePhoto_wrap-control">
-                                <img src="../images/product/cloths/photoDetail/{{photoName-middle}}.jpg" alt="{{alt}}" id="middlePhoto">
+                                <img src="../images/product/cloths/photoDetail/{{b01}}.jpg" alt="{{alt}}" id="middlePhoto">
                             </div>    
                         </div>    
                     </div>
-                    <div class="commoditySmallPhoto_wrap">
-                        <img src="../images/product/cloths/photoDetail/{{photoName-small}}.jpg" alt="{{alt}}-small" title="{{alt}}-small" data-id="middleFront">
-                        <img src="../images/product/cloths/photoDetail/{{photoName-small1}}.jpg" alt="{{alt}}-small" title="{{alt}}-small" data-id="middleBack">
+                    <div class="commoditySmallPhoto_wrap" id="b01">
+                        <img src="../images/product/cloths/photoDetail/{{b02}}.jpg" alt="{{alt}}-small" title="{{alt}}-small" data-id="middleFront">
+                        <img src="../images/product/cloths/photoDetail/{{b12}}.jpg" alt="{{alt}}-small" title="{{alt}}-small" data-id="middleBack">
+                    </div>
+                    <div class="commoditySmallPhoto_wrap isShow" id="z01">
+                        <img src="../images/product/cloths/photoDetail/{{z02}}.jpg" alt="{{alt}}-small" title="{{alt}}-small" data-id="middleFront">
+                        <img src="../images/product/cloths/photoDetail/{{z12}}.jpg" alt="{{alt}}-small" title="{{alt}}-small" data-id="middleBack">
                     </div>
                     <div class="transparent" data-id="bigGlass"></div>
                     <div class="queeze isShow" id="bigGlass"></div>
                 </div>
-                
-                
 
                 <!--商品正面大图-->
                 <div class="commodityBigPhoto_wrap isShow" id="bigPhoto_wrap" >
-                        <div class="commodityBigPhoto_wrap-1">
-                            <div class="commodityBigPhoto_item" id="bigPhoto_move">
-                                <img src="../images/product/cloths/photoDetail/{{photoName-big}}.jpg" id="bigPhoto">
-                            </div>
-                        </div> 
+                    <div class="commodityBigPhoto_wrap-1">
+                        <div class="commodityBigPhoto_item" id="bigPhoto_move">
+                            <img src="../images/product/cloths/photoDetail/{{b00}}.jpg" id="bigPhoto">
+                        </div>
+                    </div> 
                 </div>
+
+                <!--商品信息-->
                 <div class="commodityMessage_wrap">
                     <h2>{{title}}</h2>
                     <div class="commodityPrice">
-                        <dl>
-                            <dt>促销价：{{price}}</dt><br>
-                            <dt>领&nbsp;&nbsp;劵：&nbsp;
-                                <dd><a href="javascript:;"></a></dd>
-                                <dd><a href="javascript:;"></a></dd>
-                                <dd><a href="javascript:;"></a></dd>
-                            </dt>
-                        </dl>
+                        <div>
+                            <span>促销价：{{price}}</span>
+                        </div>
+                        <div>
+                            <span>领&nbsp;&nbsp;劵：&nbsp;</span>
+                            <ul>
+                                <li></li>
+                                <li></li>
+                            </ul>
+                        </div>
                     </div>
                     <div class="commodityStyle">
-                        <dl>
-                            <dt id="commodityColorSelect">颜&nbsp;&nbsp;色:&nbsp;
-                                <dd><a href="javascript:;" class='commodityColor' data-id="commodityColor-black" style="border: 2px solid #000000"><img src="../images/product/cloths/photoDetail/{{photoName-mostsmall}}.jpg" alt=""><span>标准黑</span></a></dd>
-                                <dd><a href="javascript:;" class='commodityColor' data-id="commodityColor-zong"><img src="../images/product/cloths/photoDetail/{{photoName-mostsmall_zong}}.jpg" alt=""><span>琥珀棕</span></a></dd>
-                            </dt><br>
-                            <dt>尺&nbsp;&nbsp;码:&nbsp;
-                                <dd><a href="javascript:;"><span>M</span></a></dd>
-                                <dd><a href="javascript:;"><span>L</span></a></dd>
-                                <dd><a href="javascript:;"><span>XL</span></a></dd>
-                                <dd><a href="javascript:;"><span>XXL</span></a></dd>
-                                <dd><a href="javascript:;"><span>XXXL</span></a></dd>
-                            </dt><br>
-                            <dt>数&nbsp;&nbsp;量:
-                                <button value="—">-</button>
-                                <input type="text" placeholder="0">
-                                <button style="color:#000000">+</button>
-                            </dt>
-                        </dl>
+                        <div class="commodityStyle_color">
+                            <span>颜&nbsp;&nbsp;色:&nbsp;</span>
+                            <ul>
+                                <li class="black focus" data-id="b01">
+                                    <img src="../images/product/cloths/photoDetail/{{b03}}.jpg" alt="" >
+                                    <span >标准黑</span>
+                                </li>
+                                <li class='zong' data-id="z01">
+                                    <img src="../images/product/cloths/photoDetail/{{z03}}.jpg" alt="" >
+                                    <span >琥珀棕</span>
+                                </li>       
+                            </ul>    
+                        </div>
+                        <div class="commodityStyle_size">
+                            <span>尺&nbsp;&nbsp;码:&nbsp;</span>
+                            <ul>
+                                <li><span>M</span></li>
+                                <li><span>L</span></li>
+                                <li><span>XL</span></li>
+                                <li><span>XXL</span></li>
+                                <li><span>XXXL</span></li>
+                            </ul>
+                        </div>
+                        <div id="count_plusOrMinus">
+                            <span>数&nbsp;&nbsp;量:&nbsp;</span>
+                            <ul>
+                                <li><button data-value="-">-</button></li>
+                                <li><input type="text" placeholder="0" readonly='readonly' id="countInput"></li>
+                                <li><button style="color:#000000" data-value='+'>+</button></li>
+                            </ul>
+                        </div>
                     </div>
                     <div class="commodityShop">
                         <div class="commodityShopCar">
-                            <a href="javascript:;" title="加入购物车"><img src="../images/shopCar1.png" alt=""><span>加入购物车</span></a>
-                            <a href="javascript:;" title="加入收藏夹"><img src="../images/collect.png" alt=""><span>收&nbsp;&nbsp;藏</span></a>
+                            <a href="javascript:;" title="加入购物车" ><img src="../images/shopCar1.png" alt="" data-id="addToShopcar"><span>加入购物车</span></a>
+                            <a href="javascript:;" title="加入收藏夹" data-id="addToCollect"><img src="../images/collect.png" alt="" ><span>收&nbsp;&nbsp;藏</span></a>
                         </div>
-                        <dl>
+                        <div>
                             <span>分&nbsp;&nbsp;享：</span>
-                            <dt><a href="javscript:;" title="分享至微博" class="commodityShare"><img src="../images/weibo.png" alt="微博"></a></dt>
-                            <dt><a href="javscript:;" title="分享至微信" class="commodityShare"><img src="../images/weixin.png" alt="微信"></a></dt>
-                            <dt><a href="javscript:;" title="分享至QQ" class="commodityShare"><img src="../images/qq.png" alt="QQ"></a></dt>
-                        </dl>
+                            <ul>
+                                <li><a href="javscript:;" title="分享至微博" class="commodityShare"><img src="../images/weibo.png" alt="微博"></a></li>
+                                <li><a href="javscript:;" title="分享至微信" class="commodityShare"><img src="../images/weixin.png" alt="微信"></a></li>
+                                <li><a href="javscript:;" title="分享至QQ" class="commodityShare"><img src="../images/qq.png" alt="QQ"></a></li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
             </div>
