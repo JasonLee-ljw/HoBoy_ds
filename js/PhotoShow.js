@@ -77,6 +77,7 @@ define(['jquery'], function($) {
 
     //自动播放
     PhotoShow.prototype.AutoPlay = function () {
+        
         let selt1 = this.$el;
         let width = this.opts.moveDistances
         let num = 0;

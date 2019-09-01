@@ -16,9 +16,9 @@
                 <span class="welcome">hi~ 欢迎来到HoBoy</span>
                 <div class="user_Admin" id="user_Admin1">
                     <ul class="user_Item" >
-                        <li><a href="javascript:;" class="register" data-id="register_openOrClose">登录</a></li>
-                        <li><a href="javascript:;" class="login" data-id="login_openOrClose">注册</a></li>
-                        <li><a href="javascript:;" class="exit isShow" >退出</a></li>
+                        <li><a href="javascript:;" class="register isShow" data-id="register_openOrClose">登录</a></li>
+                        <li><a href="javascript:;" class="login isShow" data-id="login_openOrClose">注册</a></li>
+                        <li><a href="javascript:;" class="exit " >退出</a></li>
                     </ul>
                     <div class="collect_shopCar">
                         <a href="javascript:;" class="collect">收藏夹</a>
@@ -55,32 +55,58 @@
                         <li>操作</li>
                     </ul>
                 </div>
-                <div class="commodity_contents">
+                <div class="commodity_contents" id="commodity_contents">
                     <ul>
                         <li class="commodity_contents-1">
                             <div>
                                 <input type="checkbox">
-                                <img src="../images/product/cloths/photoDetail/blackT_small.jpg" alt="T恤">
+                                <img src="{{commodity_picURL}}" alt="T恤">
                             </div>
                             <div class="text_detail">
-                                <a href="javascript:;" style="color: #000000">长安少年系列男子短袖文化衫</a><br>
-                                <span>颜色：标准黑&nbsp;&nbsp;</span>
-                                <span>尺寸：XL</span>
+                                <a href="javascript:;" style="color: #000000">{{commodity_title}}</a><br>
+                                <span>颜色：{{commodity_color}}&nbsp;&nbsp;</span>
+                                <span>尺寸：{{commodity_size}}</span>
                             </div>
                         </li>
-                        <li style="text-align: left"><span>￥288</span></li>
-                        <li style="text-align: left">
-                            <button style="width: 15px">-</button>
-                            <input type="text" placeholder="1" value="1" style="width: 50px;text-align: center">
-                            <button style="width: 15px">+</button>
+                        <li style="text-indent: -40px"><span>{{commodity_price}}</span></li>
+                        <li style="text-indent: -20px">
+                            <button style="width: 20px">-</button>
+                            <input type="text" placeholder="{{commodity_count}}" value="1" style="width: 50px;text-align: center">
+                            <button style="width: 20px">+</button>
                         </li>
-                        <li style="text-align: left"><span>￥288</span></li>
+                        <li style="text-indent: -40px;"><span>{{commodity_TotalPrice}}</span></li>
                         <li>
                             <a href="javascript:;"><span>删除</span></a>
                             <a href="javascript:;"><span>移入收藏夹</span></a>
                         </li>
                     </ul>
                 </div>
+                <div class="commodity_contents">
+                        <ul>
+                            <li class="commodity_contents-1">
+                                <div>
+                                    <input type="checkbox">
+                                    <img src="../images/product/cloths/photoDetail/b02.jpg" alt="T恤">
+                                </div>
+                                <div class="text_detail">
+                                    <a href="javascript:;" style="color: #000000">长安少年系列男子短袖文化衫</a><br>
+                                    <span>颜色：标准黑&nbsp;&nbsp;</span>
+                                    <span>尺寸：XL</span>
+                                </div>
+                            </li>
+                            <li style="text-indent: -40px"><span>￥288</span></li>
+                            <li style="text-indent: -20px">
+                                <button style="width: 20px">-</button>
+                                <input type="text" placeholder="1" value="1" style="width: 50px;text-align: center">
+                                <button style="width: 20px">+</button>
+                            </li>
+                            <li style="text-indent: -40px;"><span>￥288</span></li>
+                            <li>
+                                <a href="javascript:;"><span>删除</span></a>
+                                <a href="javascript:;"><span>移入收藏夹</span></a>
+                            </li>
+                        </ul>
+                    </div>
                 <div class="commodity_account">
                     <div>
                         <span>已选中&nbsp;<em style="color: red">1</em>&nbsp;件商品</span>&nbsp;&nbsp;
@@ -95,7 +121,7 @@
                             <a href="javascript:;" class="commodity_op">清空失效商品</a>
                         </li>
                         <li class="shopOrAccount"><a href="javascript:;">去结算</a></li>
-                        <li class="shopOrAccount"><a href="javascript:;">继续购物</a></li>
+                        <li class="shopOrAccount"><a href="../product/hot.html">继续购物</a></li>
                     </ul>
                 </div>
             </div>

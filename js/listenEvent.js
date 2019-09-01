@@ -30,8 +30,7 @@ $(document).ready(function () {
     var isClick = false ;
     $('#template_control').on("click","a",function(e) {
         isClick = true;
-        console.log(isClick)
-        var wrap = $(e.target);
+        wrap = $(e.target);
         pic.css('left',-wrap.data('id')*750+'px')
         return isClick;
     });
@@ -127,28 +126,34 @@ $(document).ready(function () {
     var registerWay_btn;
     var registerBox;
     var userName_text = $('#userName_text');
-    $('#phoneOrPassword_control').on('click','.phoneOrPassword',function (e) {
+    $('#register_openOrClose').on('click','.phoneOrPassword',function (e) {
         registerWay_btn = $(e.target);
         registerBox = $('#' + registerWay_btn.data('id'));
         if(registerWay_btn.text() !== '密码登录'){
             registerWay_btn.text('密码登录');
             registerBox.removeClass('isShow');
+            $('#userPassage_text').addClass('isShow');
+            $('#warningOfPassage-1').addClass('isShow')
             userName_text.attr('placeholder' ,'请输入手机号')
         }else{
             registerWay_btn.text('手机验证码登录');
             registerBox.addClass('isShow');
+            $('#userPassage_text').removeClass('isShow');
             userName_text.attr('placeholder','请输入会员号/用户名/手机号登录')
         }  
     });
 
     var close;
     var registerWrap;
-    $('#register_panelHead').on('click','span', function(e) {
+    $('#register_openOrClose').on('click','span', function(e) {
         close = $(e.target);
         registerWrap = $('#' + close.data("id"));
         registerWrap.addClass('isShow');
+    }).on('click','.btn_login',function () {
+        $('#register_openOrClose').addClass('isShow')
+        $('#login_openOrClose').removeClass('isShow')
     });
-    $('#login_panelHead').on('click','span', function(e) {
+    $('#login_openOrClose').on('click','span', function(e) {
         close = $(e.target);
         registerWrap = $('#' + close.data("id"));
         registerWrap.addClass('isShow');
@@ -158,6 +163,6 @@ $(document).ready(function () {
         registerWrap = $ ('#' + close.data('id'));
         registerWrap.removeClass('isShow');
     })
-
+    
     
 });

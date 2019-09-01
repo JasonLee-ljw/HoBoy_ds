@@ -1,4 +1,37 @@
-requirejs(['jquery','side_Toolbar','PhotoShow','photoGlass'],function ($,toolbar,photo,photoglass) {
+requirejs(['jquery','side_Toolbar','PhotoShow','CommodityDetail','allDialog','estimate'],function ($,toolbar,photo,commodityDetail,dialog) {
+    //插入登录、注册组件
+    $('#register_openOrClose').addRegisterDialog()
+    $('#login_openOrClose').addLoginDialog()
+    $('#addToShopCar').addSmallDialog({
+        picName:'success',
+        tips:'加入购物车成功！',
+        goWhereLeft:'去购物车',
+        goWhereLeftURL:'../shopCar/shopcar.html',
+        goWhereLeftDataID:'',
+        goWhereRight:'继续购物',
+        goWhereRightDataID:'addToShopCar'
+    })
+    $('#returnLogin').addSmallDialog({
+        picName:'confirm',
+        tips:'是否确认注册？',
+        goWhereLeft:'确认',
+        goWhereLeftURL:'javascript:;',
+        goWhereLeftDataID:'confirmLogin',
+        goWhereRight:'返回',
+        goWhereRightDataID:'returnLogin'
+    })
+    $("#loginSuccess").addSmallDialog({
+        picName:'success',
+        tips:'注册成功！',
+        goWhereLeft:'去登录',
+        goWhereLeftURL:'javascript:;',
+        goWhereLeftDataID:'gotoRegister',
+        goWhereRight:'返回',
+        goWhereRightDataID:'loginSuccess'
+    })
+
+
+    //侧栏导航条
     $('#backtop').backTop({
         mode:'move',
         pos:200,
@@ -107,8 +140,8 @@ requirejs(['jquery','side_Toolbar','PhotoShow','photoGlass'],function ($,toolbar
     })
     
     //商品详情页面
-    $('#commodities_wrap').photoGlass({
-        commodityDetail:{
+    $('#commodities_wrap').commodityDetail({
+        commodity:{
             title:'BADFIVE长安少年系列男子短袖文化衫',
             price:'￥288',
         },

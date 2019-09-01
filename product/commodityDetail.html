@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>HoBoy电商网站--服饰</title>
+    <link rel="stylesheet" href="../css/main/common.css" type="text/css">
+    <link rel="stylesheet" href="../css/main/product/product.css" type="text/css">
+    
+</head>
+<body>
+    <div class="wrap commodity_detail-wrap">
+        <!-- 顶部条 -->
+        <div class="commu main-1">
+            <header class="head_Bar">
+                <span class="welcome">hi~ 欢迎来到HoBoy</span>
+                <div class="user_Admin" id="user_Admin1">
+                    <ul class="user_Item" >
+                        <li><a href="javascript:;" class="register" data-id="register_openOrClose">登录</a></li>
+                        <li><a href="javascript:;" class="login" data-id="login_openOrClose">注册</a></li>
+                        <li><a href="javascript:;" class="exit isShow" >退出</a></li>
+                    </ul>
+                    <div class="collect_shopCar">
+                        <a href="javascript:;" class="collect">收藏夹</a>
+                        <a href="../shopCar/shopcar.html" class="shopCar">购物车</a>
+                    </div>
+                </div>
+            </header>
+        </div>
+        <!-- 搜索栏 -->
+        <div class="commu  main-2">
+            <div class="seach_Bar">
+                <div class="logo">
+                    <img src="../images/logo.png" alt="HoBoy">
+                </div>
+                <div class="seach">
+                    <input type="text"  placeholder="请输入你要搜索的内容..." class="seach_box" />
+                    <input type="button"  class="seach_button">
+                </div>
+            </div>   
+        </div>
+        <!--主菜单、商品概况-->
+        <div class="commu main-3">
+            
+            <!--当前路径示意-->
+            <div class="current_router current_router-commodityDetail">
+                <dl>
+                    <span>当前位置&nbsp;:</span>
+                    <dt><a href="../index.html">首页&nbsp;&gt;</a></dt>
+                    <dt><a href="../product/hot.html">服饰&nbsp;&gt;</a></dt>
+                    <dt><a href="../product/cloths.html">上装&nbsp;&gt;</a></dt>
+                    <dt><a href="javascript:;">长安少年系列男子短袖文化衫</a></dt>
+                </dl>
+            </div>
+            
+            <!--商品概况-->
+            <div class="commodityDetail_wrap" id="commodities_wrap">
+                <div class="commodityPhoto_wrap" >
+                    <div class="commodityMiddlePhoto_wrap"  id="middlePhoto_wrap">
+                        <div class="commodityMiddlePhoto_wrap-1">
+                            <div class="commodityMiddlePhoto_wrap-2" id="commodityMiddlePhoto_wrap-control">
+                                <img src="../images/product/cloths/photoDetail/{{b01}}.jpg" alt="{{alt}}" id="middlePhoto">
+                            </div>    
+                        </div>    
+                    </div>
+                    <div class="commoditySmallPhoto_wrap" id="b01">
+                        <img src="../images/product/cloths/photoDetail/{{b02}}.jpg" alt="{{alt}}-small" title="{{alt}}-small" data-id="middleFront">
+                        <img src="../images/product/cloths/photoDetail/{{b12}}.jpg" alt="{{alt}}-small" title="{{alt}}-small" data-id="middleBack">
+                    </div>
+                    <div class="commoditySmallPhoto_wrap isShow" id="z01">
+                        <img src="../images/product/cloths/photoDetail/{{z02}}.jpg" alt="{{alt}}-small" title="{{alt}}-small" data-id="middleFront">
+                        <img src="../images/product/cloths/photoDetail/{{z12}}.jpg" alt="{{alt}}-small" title="{{alt}}-small" data-id="middleBack">
+                    </div>
+                    <div class="transparent" data-id="bigGlass"></div>
+                    <div class="queeze isShow" id="bigGlass"></div>
+                </div>
+
+                <!--商品正面大图-->
+                <div class="commodityBigPhoto_wrap isShow" id="bigPhoto_wrap" >
+                    <div class="commodityBigPhoto_wrap-1">
+                        <div class="commodityBigPhoto_item" id="bigPhoto_move">
+                            <img src="../images/product/cloths/photoDetail/{{b00}}.jpg" id="bigPhoto">
+                        </div>
+                    </div> 
+                </div>
+
+                <!--商品信息-->
+                <div class="commodityMessage_wrap">
+                    <h2 id="commodity_title">{{title}}</h2>
+                    <div class="commodityPrice">
+                        <div>
+                            <span >促销价：<em id="commodity_price">{{price}}</em></span>
+                        </div>
+                        <div class="discounts">
+                            <span>领&nbsp;&nbsp;劵：</span>
+                            <ul id="discounts_item">
+                                <li><a href="javascript:;"><span>满￥88减￥8</span></a></li>
+                                <li><a href="javascript:;"><span>满￥188减￥18</span></a></li>
+                                <li><a href="javascript:;"><span>满￥288减￥28</span></a></li>
+                                <li><a href="javascript:;" data-id="close_discounts">更多</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="commodityStyle">
+                        <div class="commodityStyle_color">
+                            <span>颜&nbsp;&nbsp;色:&nbsp;</span>
+                            <ul>
+                                <li class="black focus" data-id="b01" data-value="标准黑">
+                                    <img src="../images/product/cloths/photoDetail/{{b03}}.jpg" alt="" >
+                                    <span >标准黑</span>
+                                </li>
+                                <li class='zong' data-id="z01" data-value="琥珀棕">
+                                    <img src="../images/product/cloths/photoDetail/{{z03}}.jpg" alt="" >
+                                    <span >琥珀棕</span>
+                                </li>       
+                            </ul>    
+                        </div>
+                        <div class="commodityStyle_size">
+                            <span>尺&nbsp;&nbsp;码:&nbsp;</span>
+                            <ul>
+                                <li data-value="M"><span>M</span></li>
+                                <li data-value="L"><span>L</span></li>
+                                <li data-value="XL"><span>XL</span></li>
+                                <li data-value="XXL"><span>XXL</span></li>
+                                <li data-value="XXXL"><span>XXXL</span></li>
+                            </ul>
+                            <span class="warning isShow" id="warning">请选择尺寸</span>
+                        </div>
+                        <div id="count_plusOrMinus">
+                            <span>数&nbsp;&nbsp;量:&nbsp;</span>
+                            <ul>
+                                <li><button data-value="-" id="btn_-">-</button></li>
+                                <li><input type="text" placeholder="1" readonly='readonly' id="countInput"></li>
+                                <li><button style="color:#000000" data-value='+'>+</button></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="commodityShop">
+                        <div class="commodityShopCar">
+                            <a href="javascript:;" title="加入购物车" data-id="addToShopCar"><img src="../images/shopCar1.png" alt="" data-id="addToShopcar"><span>加入购物车</span></a>
+                            <a href="javascript:;" title="加入收藏夹" data-id="addToCollect"><img src="../images/collect.png" alt="" ><span>收&nbsp;&nbsp;藏</span></a>
+                        </div>
+                        <div>
+                            <span>分&nbsp;&nbsp;享：</span>
+                            <ul>
+                                <li><a href="javscript:;" title="分享至微博" class="commodityShare"><img src="../images/weibo.png" alt="微博"></a></li>
+                                <li><a href="javscript:;" title="分享至微信" class="commodityShare"><img src="../images/weixin.png" alt="微信"></a></li>
+                                <li><a href="javscript:;" title="分享至QQ" class="commodityShare"><img src="../images/qq.png" alt="QQ"></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--商品详情列表--> 
+            <div class="commodity_list">
+                <div class="commodity_information-item item-1">
+                    <h3 class="label">商品信息</h3>
+                    <ul class="commodity_number">
+                        <li>
+                           <span>编&nbsp;&nbsp;&nbsp;&nbsp;号：52159756</span>
+                        </li>
+                        <li>
+                           <span>颜&nbsp;&nbsp;&nbsp;&nbsp;色：标准黑</span>
+                        </li>
+                        <li>
+                           <span>领&nbsp;&nbsp;&nbsp;&nbsp;型：圆领</span>
+                        </li>
+                        <li>
+                           <span>衣&nbsp;&nbsp;&nbsp;&nbsp;长：适中</span>
+                        </li>
+                        <li>
+                           <span>袖&nbsp;&nbsp;&nbsp;&nbsp;长：短袖</span>
+                        </li>
+                        <li>
+                           <span>版&nbsp;&nbsp;&nbsp;&nbsp;型：正常</span>
+                        </li>
+                        <li>
+                           <span>经典款型：LOGO/Slogan tee</span>
+                        </li>
+                        <li>
+                           <span>袖&nbsp;&nbsp;&nbsp;&nbsp;型：正常</span>
+                        </li>
+                        <li>
+                           <span>肩&nbsp;&nbsp;&nbsp;&nbsp;型：正常</span>
+                        </li>
+                        
+                    </ul>
+                    <div class="commodity_other">
+                        <ul>
+                            <li>
+                                <span>弹&nbsp;&nbsp;性：</span>
+                                <em>小</em>
+                                <i></i>
+                                <i class="focus_1"></i>
+                                <i></i>
+                                <i></i>
+                                <i></i>
+                                <em>大</em>
+                            </li>
+                            <li>
+                                <span>厚&nbsp;&nbsp;度：</span>
+                                <em>薄</em>
+                                <i></i>
+                                <i></i>
+                                <i class="focus_1"></i>
+                                <i></i>
+                                <i></i>
+                                <em>厚</em>
+                            </li>
+                            <li>
+                                <span>柔软度：</span>
+                                <em>软</em>
+                                <i class="focus_1"></i>
+                                <i></i>
+                                <i></i>
+                                <i></i>
+                                <i></i>
+                                <em>硬</em>
+                            </li>
+                            <li>
+                                <span>透气性：</span>
+                                <em>弱</em>
+                                <i></i>
+                                <i></i>
+                                <i></i>
+                                <i class="focus_1"></i>
+                                <i></i>
+                                <em>强</em>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="commodity_information-item item-2">
+                    <span>————————————————————&nbsp;<span class="label">材质洗涤</span>&nbsp;————————————————————</span>
+                    <div class="commodity_material">
+                        <div>
+                            <img src="../images/cotton.jpg" alt="棉质">
+                            <span>棉<br>cotton</span>
+                        </div>
+                        <p>用各种洗涤剂，可手洗机洗，但不宜氯漂，宜阴干，避免曝晒，以免深色衣物褪色。浸泡时间不能太长，避免褪色，深色与浅色衣服最好分开洗涤，避免染色。棉质商品一般易皱、易缩水、易变形购买时请注意。</p>
+                    </div>
+                </div>
+                <div class="commodity_information-item item-3">
+                    <span>————————————————————&nbsp;<span class="label">尺码信息</span>&nbsp;————————————————————</span>
+                    <table>
+                        <tbody>
+                            <tr>
+                                <th>吊牌尺寸</th>
+                                <th>参考尺码</th>
+                                <th>肩宽</th>
+                                <th>胸围</th>
+                                <th>袖长</th>
+                                <th>前衣长</th>
+                                <th>后衣长</th>
+                            </tr>
+                            <tr>
+                                <td>S</td>
+                                <td>165/88A</td>
+                                <td>42</td>
+                                <td>98</td>
+                                <td>20</td>
+                                <td>67</td>
+                                <td>67</td>
+                            </tr>
+                            <tr>
+                                <td>M</td>
+                                <td>170/92A</td>
+                                <td>43</td>
+                                <td>102</td>
+                                <td>21</td>
+                                <td>69</td>
+                                <td>69</td>
+                            </tr>
+                            <tr>
+                                <td>L</td>
+                                <td>175/96A</td>
+                                <td>45</td>
+                                <td>106</td>
+                                <td>21</td>
+                                <td>70</td>
+                                <td>70</td>
+                            </tr>
+                            <tr>
+                                <td>XL</td>
+                                <td>180/100A</td>
+                                <td>46</td>
+                                <td>110</td>
+                                <td>22</td>
+                                <td>73</td>
+                                <td>73</td>
+                            </tr>
+                            <tr>
+                                <td>XXL</td>
+                                <td>185/104A</td>
+                                <td>47</td>
+                                <td>114</td>
+                                <td>23</td>
+                                <td>75</td>
+                                <td>75</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <P>※ 以上尺寸为实物人工测量，因测量方式不同会有1-2CM误差，相关数据仅作参考，以收到实物为准。 单位：CM 
+                       ※ 参考尺码因衣服版型、剪裁不同会有误差，仅供参考</P>
+                    <div>
+                        <img src="../images/tops.jpg" alt="上衣各部分尺寸示意">
+                    </div>
+                </div>
+                <div class="commodity_information-item item-4">
+                    <span>————————————————————&nbsp;<span class="label">商品详情</span>&nbsp;————————————————————</span>
+                    <p>BADFIVE长安少年系列短袖文化衫，运用简洁的色彩搭配，简洁时尚。采用棉涤材质，亲肤舒适，提升穿着体验。左下摆处“长安少年”别注织唛。衣服结合当地文化与我们BADFIVE街头特性，古文化与现代结合的联名单品。</p>
+                    <img src="../images/product/cloths/photoDetail/b00.jpg" alt="标准黑正面图">
+                    <img src="../images/product/cloths/photoDetail/b10.jpg" alt="标准黑背面图">
+                    <p>衣面“BADFIVE”街头印花结合长安元素，将传统文化融入现代街头潮流，不同配色，多种花样，趣味满载，不失格调宽松自在版式设计，无惧束缚，放肆而动<br>
+                    衣服上整齐的车缝线，细密缝制，凸显品质感<br>
+                    甄选质感棉料打造，手感细腻而舒适挺括，随心去动</p>
+                    <img src="../images/product/cloths/photoDetail/z00.jpg" alt="琥珀棕正面图">
+                    <img src="../images/product/cloths/photoDetail/z10.jpg" alt="琥珀棕背面图">
+                </div>
+                <div class="commodity_information-item item-5" id="commodity_evaluate-wrap">
+                    <span>————————————————————&nbsp;<span class="label">商品评价</span>&nbsp;————————————————————</span>
+                    <div class="commodity_evaluate-title">
+                        <a href="javascript:;" class="isActive"><span>全部（88）</span></a>
+                        <a href="javascript:;"><span>有图（58）</span></a>
+                        
+                    </div>
+                    <div class="commodity_evaluate-contents">
+                        <div class="start"></div>
+                        <div>
+                            <div>
+                                <span></span>
+                                <img src="" alt="">
+                                <span></span>
+                            </div>
+                            <div>
+                                <ul>
+                                    <li></li>
+                                    <li></li>
+                                    <li></li>
+                                    <li></li>
+                                    <li></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 侧面滚动条 -->
+            <div class="toolbar_Nav">
+                <a href="javascript:;" class="toolbar-item toolbar-item-1">
+                    <span class="toolbar-item-icon">
+                        <span class="icon-wechat"></span>
+                        <i>关注 <br> 我们</i>
+                    </span>
+                    <span class="toolbar-item-code"></span>
+                </a>
+                <a href="javascript:;" class="toolbar-item">
+                    <span class="toolbar-item-icon">
+                        <span class="icon-mail4"></span>
+                        <i>意见 <br> 反馈</i>
+                    </span>
+                </a>
+                <a href="javascript:;" class="toolbar-item toolbar-item-3">
+                    <span class="toolbar-item-icon">
+                        <span class="icon-mobile"></span>
+                        <i>下载<br>APP</i>
+                    </span>
+                    <span class="toolbar-item-code"></span>
+                </a>
+                <a href="javascript:;" class="toolbar-item" id="backtop">
+                    <span class="toolbar-item-icon">
+                        <span class="icon-arrow-up2"></span>
+                        <i>返回 <br> 顶部</i>
+                    </span>
+                </a>
+            </div> 
+        </div> 
+        
+    
+    </div>
+
+    <!--更多优惠劵-->
+    <div class="dialog  isShow" id="close_discounts">
+        <div class="discountsOrShopCar_panel discounts_panel">
+            <header class="discounts_panelHead">
+                <h2>优惠劵</h2>
+                <span>——————可领取的劵——————</span>
+                <span class='close' data-id="close_discounts"></span>
+            </header>
+            <section class="discounts_item">
+                <div>
+                    <span>优<br>惠<br>劵</span>
+                    <span><em style="font-size: 20px;">￥8</em><em>满￥88减￥8</em></span>
+                    <a href="javscript:;"><em>点&nbsp;击<br>领&nbsp;取</em></a>
+                </div>
+                <div>
+                    <span>优<br>惠<br>劵</span>
+                    <span><em style="font-size: 20px;">￥18</em><em>满￥188减￥18</em></span>
+                    <a href="javscript:;"><em>点&nbsp;击<br>领&nbsp;取</em></a>
+                </div>
+                <div>
+                    <span>优<br>惠<br>劵</span>
+                    <span><em style="font-size: 20px;">￥28</em><em>满￥288减￥28</em></span>
+                    <a href="javscript:;"><em>点&nbsp;击<br>领&nbsp;取</em></a>
+                </div>
+                <div>
+                    <span>优<br>惠<br>劵</span>
+                    <span><em style="font-size: 20px;">￥58</em><em>满￥588减￥58</em></span>
+                    <a href="javscript:;"><em>点&nbsp;击<br>领&nbsp;取</em></a>
+                </div>
+                <div>
+                    <span>优<br>惠<br>劵</span>
+                    <span><em style="font-size: 20px;">￥88</em><em>满￥1188减￥88</em></span>
+                    <a href="javscript:;"><em>点&nbsp;击<br>领&nbsp;取</em></a>
+                </div>
+            </section>
+        </div>
+    </div>
+
+    <!--加入购物车成功-->
+    <div class="dialog  smallDialog_wrap isShow" id="addToShopCar">
+        
+    </div>
+
+    <!--登录-->
+    <div class='dialog register_wrap isShow' id='register_openOrClose'>
+    </div>
+
+    <!--新用户注册-->
+    <div class="dialog login_wrap isShow" id="login_openOrClose">
+    </div>
+
+    <!--提示是否注册-->
+    <div class="dialog  smallDialog_wrap isShow" id="returnLogin">
+    </div>
+    
+    <!--注册成功-->
+    <div class="dialog  smallDialog_wrap isShow" id="loginSuccess">
+    </div>
+
+    <script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+    <script src="../js/require.js" data-main="../js/main"></script>
+    <script src="../js/listenEvent.js"></script>
+
+</body>
+</html>
