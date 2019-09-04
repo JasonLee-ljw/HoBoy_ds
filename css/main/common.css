@@ -77,54 +77,72 @@ a{
 /*顶部条*/
 .head_Bar{
     position: relative;
-    width: 1100px;
-    height: 25px;
+    width: 100%;
     margin: 0 auto;
-    line-height: 25px;
     font-size: 15px;
     color: #ffffff;
     font-weight: 600;
 }
 
+.head_Bar .top_Bar{
+    width: 100%;
+    height: 25px;
+    line-height: 25px;
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
 .head_Bar .welcome{
     position: absolute;
-    left: 10px;
+    left: 150px;
     top: 0;
 }
 
 .head_Bar .user_Admin{
-    position: relative;
-    float: right;
-    width: 260px;
-    margin-right: 30px;
+    width: 350px;
+    position: absolute;
+    display: flex;
+    right: 150px;
+    top: 0;
+}
+
+.head_Bar .user_Admin .userName_Header{
+    display: inline-block;
+    width: 70px;
+    height: 20px;
+    line-height: 20px;
+    background: url('../../images/headPhoto.png') no-repeat -2px 0;
 }
 
 .user_Admin .user_Item{
-    position: absolute;
-    left: -10px;
+    position: relative;
+    flex: 1;
     top: 0;
+
 }
+
 .user_Admin li{
     display: inline-block;
-    margin-right: 5px;
+    position: relative;
+    margin-left: 8px;
 }
 
 .user_Admin .collect_shopCar {
+    display: inline-block;
     position: relative;
-    float: right;
-    width: 120px;
+    flex: 1;
 }
 
 .collect_shopCar .collect{
-    position: absolute;
-    left: -18px;;
-    text-indent: 20px;
+    display: inline-block;
+    width:90px;
+    position: relative; 
+    margin-right: 15px;
     background: url('../../images/start.png') no-repeat 0 4px; 
 }
 .collect_shopCar .collect::after{
     content: "";
     border: .5px solid #b5b5b5;
-    margin-left: 2px;
+    margin-left: 5px;
 }
 .collect_shopCar .shopCar{
     position: absolute;
@@ -394,6 +412,27 @@ a{
     margin: 100px auto;
     border: 1px solid transparent;
 }
+.register_data .users_input .registerEye,
+.login_data .user_common .loginEye{
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    right:220px;
+    top: 0;
+    cursor: pointer;
+}
+
+.register_data .users_input .registerCloseEye,
+.login_data .user_common .loginCloseEye{
+    background: url('../../images/closeEye.png') no-repeat;
+}
+
+.register_data .users_input .registerOpenEye,
+.login_data .user_common .loginOpenEye{
+    background: url('../../images/openEye.png') no-repeat;
+}
+
 
 /*登录*/
 .users_input .users_message,
@@ -403,6 +442,11 @@ a{
     left: 50%;
     top: 0;
     margin-left: -150px;
+}
+
+.register_data .users_input .registerEye{
+    right: 0;
+    top: 75px;
 }
 
 .users_input .users_message input{
@@ -416,7 +460,7 @@ a{
 .users_input .users_message .warningOf,
 .users_input .vertify_code .warningOf{
     display: block;
-    width: 150px;
+    width: 180px;
     height: 20px;
     line-height: 20px;
     text-indent: 20px;
@@ -576,23 +620,7 @@ a{
     margin-top: 40px;
 }
 
-.login_data .user_common .loginEye{
-    display: inline-block;
-    width: 20px;
-    height: 20px;
-    position: absolute;
-    right:220px;
-    top: 0;
-    cursor: pointer;
-}
 
-.login_data .user_common .loginCloseEye{
-    background: url('../../images/closeEye.png') no-repeat;
-}
-
-.login_data .user_common .loginOpenEye{
-    background: url('../../images/openEye.png') no-repeat;
-}
 
 .login_data .loginWarning{
     display: block;

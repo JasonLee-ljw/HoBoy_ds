@@ -17,17 +17,22 @@ define(['jquery'],function($) {
             "<div class='registerAndLogin_panel register_panel'>"+
                 "<header id='register_panelHead'>"+
                     "<h2>用户登录</h2>"+
-                    "<span data-id='register_openOrClose' ></span>"+
+                    "<span id='register_Close' ></span>"+
                 "</header>"+
                 "<section class='registerAndLogin_data register_data' id='registerData_Gather'>"+
                     "<!--用户登录信息-->"+
                     "<div class='registerAndLogin_input users_input'>"+
                         "<div class='users_message' id='userInput'>"+
                             "<input type='text' placeholder='请输入用户名/手机号登录' id='userName_text' data-id='warningOfPhone' class='register_input'>"+
-                            "<span class='warningOf isShow' id='warningOfPhone-1'>"+"请输入手机号"+"</span>"+
+                            "<span class='warningOf isShow' id='warningOfPhone-1'>"+"请输入用户名/手机号"+"</span>"+
                             "<span class='warningOf isShow' id='warningOfPhone-2'>"+"请输入正确的手机号"+"</span>"+
+                            "<span class='warningOf isShow' id='warningOfPhone-3'>"+"手机号未注册，请先注册"+"</span>"+
+                            "<span class='warningOf isShow' id='warningOfPhone-4'>"+"用户名不存在，请先注册"+"</span>"+
                             "<input type='password' placeholder='请输入密码...'  id='userPassage_text' data-id='warningOfPassage' class='password register_input'>"+
+                            "<span class='registerEye registerCloseEye ' data-id='registerOpenEye' id='registerCloseEye'>"+"</span>"+
+                            "<span class='registerEye registerOpenEye isShow' data-id='registerCloseEye' id='registerOpenEye'>"+"</span>"+
                             "<span class='warningOf warningOfPassage isShow' id='warningOfPassage-1' >"+"请输入密码"+"</span>"+
+                            "<span class='warningOf warningOfPassage isShow' id='warningOfPassage-2' >"+"密码错误"+"</span>"+
                             "<div class='phone_code-wrap isShow' id='isShow-item' >"+
                                 "<input type='text' placeholder='请输入手机动态验证码'      class='phone_code-input register_input' id='phoneCode_text' data-id='warningOfPhoneCode'>"+
                                 "<a href='javascript:;'  class='phone_btn acquireVertifyCode_register'>" +"获取短信验证码"+"</a>" +
@@ -79,7 +84,7 @@ define(['jquery'],function($) {
             "<div class='registerAndLogin_panel login_panel'>"+
                 "<header id='login_panelHead'>"+
                     "<h2>" +"新用户注册"+"</h2>" +
-                    "<span data-id='login_openOrClose'>" +"</span>" +
+                    "<span id='login_Close'>" +"</span>" +
                 "</header>" +
                 "<section class='registerAndLogin_data login_data' id='loginData_Gather'>" +
                     "<!--注册用户信息填写-->" +
@@ -88,13 +93,14 @@ define(['jquery'],function($) {
                         "<span>" +"用户名*"+"</span>" +
                         "<input type='text' placeholder='请输入用户名' class='login_input' id='loginUserName_text' data-id='loginWarningOfUserName'>" +
                         "<span class='loginWarning isShow' id='loginWarningOfUserName-1'>"+"请输入用户名"+"</span>"+
-                        "<span class='loginWarning isShow' id='loginWarningOfUserName-2'>"+"用户名已存在,请重新输入"+"</span>"+
+                        "<span class='loginWarning isShow' id='loginWarningOfUserName-2'>"+"用户名已存在"+"</span>"+
                     "</div>" +
                     "<div class='user_common user_email'>" +
                         "<span>" +"邮箱*"+"</span>" +
                         "<input type='text' placeholder='请输入邮箱' class='login_input' id='loginUserEmail_text' data-id='loginWarningOfUserEmail'>" +
                         "<span class='loginWarning isShow' id='loginWarningOfUserEmail-1'>"+"请输入邮箱"+"</span>"+
                         "<span class='loginWarning isShow' id='loginWarningOfUserEmail-2'>"+"请输入正确的邮箱"+"</span>"+
+                        "<span class='loginWarning isShow' id='loginWarningOfUserEmail-3'>"+"该邮箱已注册"+"</span>"+
                     "</div>" +
                     "<div class='user_common user_password'>" +
                         "<span>" +"密码*"+"</span>" +
@@ -120,6 +126,7 @@ define(['jquery'],function($) {
                         "<input type='text' placeholder='请输入手机号' class='login_input' id='loginUserPhone_text' data-id='loginWarningOfUserPhone'>" +
                         "<span class='loginWarning isShow' id='loginWarningOfUserPhone-1'>"+"请输入手机号"+"</span>"+
                         "<span class='loginWarning isShow' id='loginWarningOfUserPhone-2'>"+"请输入正确的手机号"+"</span>"+
+                        "<span class='loginWarning isShow' id='loginWarningOfUserPhone-3'>"+"手机号已存在"+"</span>"+
                     "</div>" +
                     "<div class='user_common user_taxCode'>" +
                         "<span>" +"短信验证码*"+"</span>" +

@@ -29,16 +29,64 @@ define(['jquery'],function($) {
             },1000)
      
     }
-    
 
+    //判断是否存在（用户名/邮箱/密码/手机号）
+    function judgeKey(num= 4,e = 'name',el,el1,el2,ele = 'true'){//输入需截取的字符串数量及判断的名字
+        let keyName = [];
+        let n = 0;
+        let isRegister = ele;
+            for(let key in localStorage){
+                if(key.substr(-num,num) == e){
+                 keyName.push(key)
+                }
+            }
+        if(isRegister == 'true'){
+            for(let i = 0; i< keyName.length; i++){
+                if($.trim($(el).val()) == localStorage.getItem(keyName[i])){
+                    $(el1).removeClass('isShow')//如果存在，警告语显示（用于注册页面，判断用户名等信息是否已被使用）   
+                }else{
+                    n ++
+                }
+            }
+
+            if(n == keyName.length){//如果不存在，提示语显示（用于登录页面，判断手机号/用户名是否已注册）
+                $(el2).removeClass('isShow')
+            }
+        }else if(isRegister == 'flase'){
+            for(let i = 0; i< keyName.length; i++){
+                if($.trim($(el).val()) == localStorage.getItem(keyName[i])){
+                    //如果存在，如是使用手机号登录，根据手机号，找到对应用户名、用户密码，对比密码是否与用户输入一致，以此判断登录密码是否正确
+                    
+                    let userName = keyName[i].substring(0,keyName[i].length - num)
+                    if($.trim($('#userPassage_text').val()) == localStorage.getItem(userName+'password')){
+                        alert(`登录成功！欢迎你~${userName}`)
+                        localStorage.setItem('newUser',`${userName}`)
+                        window.location.reload()
+                        $('#register_openOrClose').addClass('isShow')
+                        $('.registerOrLogin_entrance').addClass('isShow')
+                        $('.userNameOrExit_entrance').removeClass('isShow')
+                        $('#userName_Header').text(`${userName}`)
+                        localStorage.setItem('isRegister','true')
+                    }else{//密码错误警示
+                        $(el1).removeClass('isShow')
+                    }
+                    
+                }else{
+                    
+                }
+            }
+        }
+            
+    }
+
+    
+    
     //登录点击事件
     $('#register_openOrClose').on('click','#clickForRegister',function() {
-        let phoneInput = $('#userName_text').val();//手机号码输入框
-        let passageInput = $('#userPassage_text').val();//密码输入框
-        let vertifyInput = $('#vertifyCode_text').val();//验证码输入框
+        
         let registerInput = $(".register_input")//所有登录页面输入框
-
-
+        let registerWarning = $('.warningOf')//所有登录页面警告框
+        let num = 0;
         //遍历所有输入框，判断是否为空
         for(let i = 0;i<registerInput.length;i++){
             if($.trim(registerInput.eq(i).val()).length == 0){
@@ -49,6 +97,23 @@ define(['jquery'],function($) {
         if($('#userPassage_text').hasClass('isShow') && !$('#warningOfPassage-1').hasClass('isShow')){
             $('#warningOfPassage-1').addClass('isShow')
         }
+         
+        //登录前判断所有信息是否填写完成
+        for(let j = 0; j< registerWarning.length;j++){
+            if(registerWarning.eq(j).hasClass('isShow')){
+                num++
+            }else{
+                
+            }
+            
+            if(num == 9 && $("#isShow-item").hasClass('isShow')){//用户使用密码登录
+                if($.trim($('#userName_text').val()).length == 11){//使用手机号+密码登录
+                    judgeKey(5,'phone','#userName_text','#warningOfPassage-2','','flase')
+                }else{//使用用户名登录
+                    judgeKey(4,'name','#userName_text','#warningOfPassage-2','','flase')
+                }
+            }
+        }
 
 
 
@@ -58,12 +123,18 @@ define(['jquery'],function($) {
             $('#warningOfPhone-1').addClass('isShow')
         }else if(!$('#warningOfPhone-2').hasClass('isShow')){
             $('#warningOfPhone-2').addClass('isShow')
+        }else if(!$('#warningOfPhone-3').hasClass('isShow')){
+            $('#warningOfPhone-3').addClass('isShow')
+        }else if(!$('#warningOfPhone-4').hasClass('isShow')){
+            $('#warningOfPhone-4').addClass('isShow')
         }else{
             return
         }
     }).on('click','#userPassage_text',function() {
         if(!$('#warningOfPassage-1').hasClass('isShow')){
             $('#warningOfPassage-1').addClass('isShow')
+        }else if(!$('#warningOfPassage-2').hasClass('isShow')){
+            $('#warningOfPassage-2').addClass('isShow')
         }
     }).on('click','#vertifyCode_text',function() {
         if(!$('#warningOfCode-1').hasClass('isShow')){
@@ -84,18 +155,62 @@ define(['jquery'],function($) {
     }).on('click','.acquireVertifyCode_register',function () {
         if($.trim($('#userName_text').val()).length == 0) {
             $('#warningOfPhone-1').removeClass('isShow')
-        }else if(isPhoneNumber($.trim($('#userName_text').val())) == true){
+        }else if(isPhoneNumber($.trim($('#userName_text').val())) == true ){
             $("#sendAgain_register").addClass('isShow')
             $("#alreadySend_register").removeClass('isShow')
             countDown();
         }
-    })
+    //登录方式切换
+    }).on('click','.phoneOrPassword',function (e) {
+        let registerWay_btn = $(e.target);
+        let registerBox = $('#' + registerWay_btn.data('id'));
+        if(registerWay_btn.text() !== '密码登录'){
+            registerWay_btn.text('密码登录');
+            registerBox.removeClass('isShow');
+            $('#userPassage_text').addClass('isShow');
+            $('#warningOfPassage-1').addClass('isShow')
+            $("#userName_text").attr('placeholder' ,'请输入手机号')
+        }else{
+            registerWay_btn.text('手机验证码登录');
+            registerBox.addClass('isShow');
+            $('#userPassage_text').removeClass('isShow');
+            $("#userName_text").attr('placeholder','请输入用户名/手机号登录')
+        } 
+    
+    //登录页面右上角关闭按钮
+    }).on('click','#register_Close', function(e) {
+        $('#register_openOrClose').addClass('isShow');
+    
+    //切换到注册页面
+    }).on('click','.btn_login',function () {
+        $('#register_openOrClose').addClass('isShow')
+        $('#login_openOrClose').removeClass('isShow')
+
+    //密码显示/隐藏
+    }).on('click','.users_input .registerEye',function(e) {
+        $(e.target).addClass('isShow')
+        $('#' + $(e.target).data('id')).removeClass('isShow')
+        if( $(e.target).data('id') == 'registerOpenEye'){
+            $('#userPassage_text').attr('type','text')
+
+        }else if($(e.target).data('id') == 'registerCloseEye'){
+            $('#userPassage_text').attr('type','password')
+            
+        }else{
+            
+        }
+    });
     
 
 
-    let firstStorage = [];
+
     
     //注册页面事件
+    let firstStorage = [];
+    let userName = '';
+    let userEmail = '';
+    let userPassword = '';
+    let userPhone = '';
     $('#login_openOrClose').on('click','#confirm_sumbit',function () {
         let loginInput = $('.login_input')//注册页面所有input框
         let wraning = $('.loginWarning')//注册页面所有警告
@@ -121,12 +236,16 @@ define(['jquery'],function($) {
             }else{
                 
             }
-
-            if(num == 15 && !wraning.eq(6).hasClass('isShow') && !wraning.eq(7).hasClass('isShow')){
+           
+            if(num == 17 && !wraning.eq(7).hasClass('isShow') && !wraning.eq(8).hasClass('isShow')){
                 $("#returnLogin").removeClass('isShow')
                 for(let k = 0;k<loginInput.length;k++){
                     firstStorage.push(loginInput.eq(k).val())
                 }
+                userName = firstStorage[0];
+                userEmail = firstStorage[1];
+                userPassword = firstStorage[2];
+                userPhone = firstStorage[4];
                 
             }
         }
@@ -168,17 +287,20 @@ define(['jquery'],function($) {
     }).on('click','.acquireVertifyCode',function() {
         if($.trim($('#loginUserPhone_text').val()).length == 0) {
             $('#loginWarningOfUserPhone-1').removeClass('isShow')
-        }else if(isPhoneNumber($.trim($('#loginUserPhone_text').val())) == true){
+        }else if(isPhoneNumber($.trim($('#loginUserPhone_text').val())) == true && $('#loginWarningOfUserPhone-3').hasClass('isShow')){
             $("#sendAgain").addClass('isShow')
             $("#alreadySend").removeClass('isShow')
             countDown();//发送成功，显示倒计时
         }
 
-    })
+    //注册页面右上角关闭按钮
+    }).on('click','#login_Close', function(e) {
+        $('#login_openOrClose').addClass('isShow');
+    });
     
-    //判断密码强度
+    
     $(function(){
-           
+           //判断密码强度
           $('#loginUserPassage_text').on('input propertychange', function() {
             let loginPassage = $('#loginUserPassage_text').val()//密码输入框字符串
             
@@ -213,8 +335,7 @@ define(['jquery'],function($) {
           });
 
         //光标移出输入框事件
-        let currentPassword = ''
-             
+        let currentPassword = ''   
         $('#loginData_Gather').on('blur','#loginUserPassage_text',function () {
                currentPassword = $('#loginUserPassage_text').val();
                if($.trim($('#loginUserPassage_text').val()).length > 0 && $.trim($('#loginUserPassage_text').val()).length < 6){
@@ -256,18 +377,29 @@ define(['jquery'],function($) {
         
         //判断用户名是否已使用
         }).on('blur','#loginUserName_text',function(){
-            if($.trim($('#loginUserName_text').val()) == localStorage.getItem('user_Name')){
-                $("#loginWarningOfUserName-2").removeClass('isShow')
-            }
+            judgeKey(4,'name',"#loginUserName_text","#loginWarningOfUserName-2")
+       
+        //判断邮箱是否已存在
+        }).on('blur','#loginUserEmail_text',function(){
+            judgeKey(5,'email',"#loginUserEmail_text","#loginWarningOfUserEmail-3")
+
+        //判断手机号是否已存在
+        }).on('blur','#loginUserPhone_text',function(){
+            judgeKey(5,'phone',"#loginUserPhone_text","#loginWarningOfUserPhone-3")
+
         });
         
 
 
         //登录界面光标移出事件
-        //判断手机号格式是否正确
+        //判断手机号格式是否正确/手机号是否已注册/用户名是否已存在
         $("#registerData_Gather").on('blur','#userName_text',function () {
-            if($.trim($('#userName_text').val()).length !== 0 && isPhoneNumber($.trim($('#userName_text').val())) == false){
+            if($.trim($('#userName_text').val()).length == 11 && isPhoneNumber($.trim($('#userName_text').val())) == false){//判断手机格式
                 $('#warningOfPhone-2').removeClass('isShow')
+            }else if($.trim($('#userName_text').val()).length == 11 &&  isPhoneNumber($.trim($('#userName_text').val())) == true){//判断手机号是否已注册
+                judgeKey(5,'phone','#userName_text','','#warningOfPhone-3',)
+            }else if($.trim($('#userName_text').val()).length !== 0 && $.trim($('#userName_text').val()).length !== 11){//归类为用户名，判断用户名是否已注册
+                judgeKey(4,'name','#userName_text','','#warningOfPhone-4')
             }
 
         //判断验证码是否正确
@@ -293,7 +425,10 @@ define(['jquery'],function($) {
             $('#returnLogin').addClass('isShow')
             $('#login_openOrClose').addClass('isShow')
             $("#loginSuccess").removeClass('isShow')//注册成功弹窗出现
-            
+            localStorage.setItem(`${userName}name`,userName);
+            localStorage.setItem(`${userName}email`,userEmail);
+            localStorage.setItem(`${userName}password`,userPassword);
+            localStorage.setItem(`${userName}phone`,userPhone);
             
         }
     
@@ -310,8 +445,6 @@ define(['jquery'],function($) {
             $("#register_openOrClose").removeClass('isShow')
         }
     })
-        
-        
         
     
 

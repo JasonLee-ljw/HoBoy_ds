@@ -9,41 +9,14 @@
     <link rel="stylesheet" href="../css/main/product/product.css" type="text/css">
 </head>
 <body>
-    <div class="wrap">
+    <div class="wrap" id='main_Wrap'>
         <!-- 顶部条 -->
-        <div class="commu main-1">
-            <header class="head_Bar">
-                <span class="welcome">hi~ 欢迎来到HoBoy</span>
-                <div class="user_Admin" id="user_Admin1">
-                    <ul class="user_Item" >
-                        <li><a href="javascript:;" class="register" data-id="register_openOrClose">登录</a></li>
-                        <li><a href="javascript:;" class="login" data-id="login_openOrClose">注册</a></li>
-                        <li><a href="javascript:;" class="exit isShow" >退出</a></li>
-                    </ul>
-                    <div class="collect_shopCar">
-                        <a href="javascript:;" class="collect">收藏夹</a>
-                        <a href="javascript:;" class="shopCar">购物车</a>
-                    </div>
-                </div>
-            </header>
-        </div>
-        <!-- 搜索栏 -->
-        <div class="commu  main-2">
-            <div class="seach_Bar">
-                <div class="logo">
-                    <img src="../images/logo.png" alt="HoBoy">
-                </div>
-                <div class="seach">
-                    <input type="text"  placeholder="请输入你要搜索的内容..." class="seach_box" />
-                    <input type="button"  class="seach_button">
-                </div>
-            </div>   
-        </div>
+        
         <!--导航菜单-->
         <div class="commu main-3">
             <div class="main_Nav">
                 <ul class="main_Nav-item">
-                    <li><a href="../index.html">首页</a></li>
+                    <li><a href="./index.html">首页</a></li>
                     <li><a href="../product/hot.html">服饰</a></li>
                 </ul>
             </div>
@@ -88,16 +61,26 @@
         </div>
         
     </div>
+
     <!--登录-->
-    <div class="dialog register_wrap isShow" id="register_openOrClose">
-    </div> 
-    <!--新用户注册-->
-    <div class="dialog login_wrap isShow" id="login_openOrClose">
-    </div> 
-    <!--提示是否注册-->
-    <div class="dialog  confirmLogin_wrap isShow" id="returnLogin">
+    <div class='dialog register_wrap isShow' id='register_openOrClose'>
     </div>
 
+    <!--新用户注册-->
+    <div class="dialog login_wrap isShow" id="login_openOrClose">
+    </div>
+
+    <!--提示是否注册-->
+    <div class="dialog  smallDialog_wrap isShow" id="returnLogin">
+    </div>
+    
+    <!--注册成功-->
+    <div class="dialog  smallDialog_wrap isShow" id="loginSuccess">
+    </div>
+
+    <!--提示是否退出登录-->
+    <div class="dialog smallDialog_wrap isShow" id="selectIsExit">  
+    </div>
 
 
 
@@ -107,13 +90,3 @@
 </body>
 </html>
 
-<!-- <div class="discountsOrShopCar_panel shopCar_panel">
-            <div class="addSuccess_title">
-                <img src="../images/addSuccess.png" alt="成功">
-                <h2>加入购物车成功！</h2>
-            </div>
-            <div class="toShopCarOrContinue">
-                <a href="../shopCar/shopcar.html">去购物车</a>
-                <a href="javascript:;" data-id="addToShopCar">继续购物</a>
-            </div>
-        </div> -->

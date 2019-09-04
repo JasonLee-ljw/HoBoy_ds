@@ -1,28 +1,18 @@
-define(['jquery'],function ($) {
+define(['jquery','domModel'],function ($,commoditiesModel) {
+    
     function CommodityDetail (el,opts) {
         this.opts = $.extend({},CommodityDetail.DEFAULT,opts);
         this.$el = $(el);
-        this.photoColor;
-        this.size;
         this.color;
-        this.count = 1;
         this.picURL;
+        
+        
+
     };
     CommodityDetail.prototype.init = function () {
         this.commodities();
         this.bigGlass();
         this.eventGather();
-    }
-    
-    //深拷贝对象数组
-    CommodityDetail.prototype.deepCopy = function () {
-        if(this.count == 'black'){
-            this.photoColor = JSON.parse(JSON.stringify(this.opts.Blackphoto));
-        }else{
-            this.photoColor = JSON.parse(JSON.stringify(this.opts.Zongphoto));
-        }
-        
-        
     }
 
 
@@ -152,11 +142,13 @@ define(['jquery'],function ($) {
 
     //商品详情界面，事件汇总
     CommodityDetail.prototype.eventGather = function () {
-        let selfCount = this.count; 
-        let selfSize = this.size;
-        let selfTitle = this.opts.title;
-        let selfPrice = this.opts.price;
-        let selfPic = this.picURL;
+        let selfPic = '../images/product/cloths/photoDetail/b02.jpg';
+        let selfTitle = $('#commodity_title').text();
+        let selfColor = '标准黑';
+        let selfSize = '';
+        let selfPrice = $('#commodity_price').text();
+        let selfCount = 1;  
+        let selfTotal = selfPrice * selfCount;
         this.$el.on('click','.commodityStyle_size li',function (e) {//商品尺寸选中状态
             selfSize = $(e.target).data('value');
             if ($('#warning').hasClass('isShow')) {
@@ -181,17 +173,69 @@ define(['jquery'],function ($) {
             }else{
                 return;
             }
-        }).on('click','.commodityShop a',function(e) {//加入收藏/购物车
+        }).on('click','.commodityStyle_color li',function(e){
+            selfColor = $(e.target).data('value');
+            selfPic = $("#" + $(e.target).data('id')).children(":first").attr('src');
+        })
+        .on('click','.commodityShop a',function(e) {//加入收藏/购物车
             if($(e.target).data('id') == 'addToCollect'){
                 $(e.target).children().attr('src','../images/collect1.png')
+            }else if(localStorage.getItem('isRegister') !== 'true' || !$('.registerOrLogin_entrance').hasClass('isShow') ){//判断是否已登录账户
+                alert('您尚未登录，请先登录！')
             }else if(selfSize !== undefined && $(e.target).data('id') == 'addToShopCar'){
                 selfTitle = $('#commodity_title').text();
                 selfPrice = $('#commodity_price').text();
                 $('#' + $(e.target).data('id')).removeClass('isShow')
+                if(localStorage.getItem('shopCar') !== null){
+                    let newObj = [{
+                    picURL:`${selfPic}`,
+                    title:`${selfTitle}`,
+                    color:`${selfColor}`,
+                    size:`${selfSize}`,
+                    price:`${selfPrice}`,
+                    count:`${selfCount}`,
+                    }]
+                    let obj = JSON.parse(localStorage.getItem('shopCar'))
+                    let num = 0;
+                    for(let i = 0;i<obj.length;i++){//判断购物车里是否已存在商品（商品名、颜色、尺寸均相同）
+                        if(obj[i].title == newObj[0].title && obj[i].color == newObj[0].color && obj[i].size == newObj[0].size){
+                            //如果已存在相同商品，更改该商品在localStorage中对应数量，购物车里对应商品数量增加即可，不再作为新商品插入
+                            obj[i].count = parseInt(newObj[0].count) + parseInt(obj[i].count)
+                            let review =  JSON.stringify(obj)   
+                            localStorage.setItem('shopCar',`${review}`)
+                            num ++;
+                        }
+                    }
+                    if(num == 0){//如果购物车中不存在相同商品，则作为新商品插入到购物车
+                        let nowObj = JSON.parse(localStorage.getItem('shopCar')).concat(newObj)
+                        localStorage.setItem('shopCar',JSON.stringify(nowObj)) 
+                    }else{
+
+                    }
+                    
+                }else{
+                    let newObj = [{
+                        picURL:`${selfPic}`,
+                        title:`${selfTitle}`,
+                        color:`${selfColor}`,
+                        size:`${selfSize}`,
+                        price:`${selfPrice}`,
+                        count:`${selfCount}`,
+                    }]
+                    let str = JSON.stringify(newObj)
+                    localStorage.setItem('shopCar',str)
+                }
+
             }else{
                 $('#warning').removeClass('isShow')
             }
-        }).on('click','#discounts_item a',function (e) {//优惠劵弹窗显示
+
+
+
+
+
+        //优惠劵弹窗显示    
+        }).on('click','#discounts_item a',function (e) {
             $("#close_discounts").removeClass('isShow')
         });
         
@@ -202,7 +246,7 @@ define(['jquery'],function ($) {
 
         //关闭添加购物车成功弹窗
         $('#addToShopCar').on('click', 'a',function (e) {
-            if ($(e.target).data('id') == 'addToShopCar'){
+            if ($(e.target).data('id') == 'addToShopCar' ){
                 $('#addToShopCar').addClass('isShow')
             }
         })
@@ -231,7 +275,7 @@ define(['jquery'],function ($) {
     }
     
     let init = function (el,option) {
-        new CommodityDetail(el.option).init();
+        new CommodityDetail(el,option).init();
     }
     //封装为jquery插件
     $.fn.extend({

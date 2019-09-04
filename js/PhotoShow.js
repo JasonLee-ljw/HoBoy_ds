@@ -32,7 +32,8 @@ define(['jquery'], function($) {
             let photoData = this.opts.photoData;
             for(let i = 0;i<this.photoCount;i++){
                 let main_HTML = mainModel.replace(/{{photoName}}/g,photoData[i].photoName)
-                                         .replace(/{{alt}}/g,photoData[i].alt)                     .replace(/newAttr/g,photoData[i].newAttr);
+                                         .replace(/{{alt}}/g,photoData[i].alt)                     
+                                         .replace(/newAttr/g,photoData[i].newAttr);
                 out_main.push(main_HTML);
             }
             this.$el.html(out_main);

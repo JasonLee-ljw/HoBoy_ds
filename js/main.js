@@ -1,7 +1,39 @@
-requirejs(['jquery','side_Toolbar','PhotoShow','CommodityDetail','allDialog','estimate'],function ($,toolbar,photo,commodityDetail,dialog) {
+requirejs(['jquery','side_Toolbar','PhotoShow','CommodityDetail','allDialog','estimate','domModel','shopCar'],function ($,toolbar,photo,commodityDetail,dialog,dommodel,shopcar) {
+    //插入页面头部
+    $('#main_Wrap').insertHeader({
+    });
+
+    //网页刷新时，判断用户是否已登录
+    if(localStorage.getItem('isRegister') == 'true'){
+        $('.registerOrLogin_entrance').addClass('isShow')
+        $('.userNameOrExit_entrance').removeClass('isShow')
+        let userName = localStorage.getItem('newUser')//如已登录，页面头部加上用户用户名
+        $('#userName_Header').text(`${userName}`)
+    }
+
+    //根据localstorage里所存商品数据，动态生成购物车列表
+    if(localStorage.getItem('shopCar') !== null){
+        let obj = JSON.parse(localStorage.getItem('shopCar'))
+        for(let i = 0;i<obj.length;i++){
+            $('#commodity_totalAccount').insertShopCar({
+                commodities:{
+                    picURL:`${obj[i].picURL}`,
+                    title:`${obj[i].title}`,
+                    color:`${obj[i].color}`,
+                    size:`${obj[i].size}`,
+                    price:`${obj[i].price}`,
+                    count:`${obj[i].count}`,
+                }
+            })
+        }
+    }
+    
+    
     //插入登录、注册组件
     $('#register_openOrClose').addRegisterDialog()
     $('#login_openOrClose').addLoginDialog()
+
+    //加入购物车成功弹窗
     $('#addToShopCar').addSmallDialog({
         picName:'success',
         tips:'加入购物车成功！',
@@ -11,6 +43,8 @@ requirejs(['jquery','side_Toolbar','PhotoShow','CommodityDetail','allDialog','es
         goWhereRight:'继续购物',
         goWhereRightDataID:'addToShopCar'
     })
+
+    //确认注册弹窗
     $('#returnLogin').addSmallDialog({
         picName:'confirm',
         tips:'是否确认注册？',
@@ -20,6 +54,8 @@ requirejs(['jquery','side_Toolbar','PhotoShow','CommodityDetail','allDialog','es
         goWhereRight:'返回',
         goWhereRightDataID:'returnLogin'
     })
+
+    //注册成功弹窗
     $("#loginSuccess").addSmallDialog({
         picName:'success',
         tips:'注册成功！',
@@ -30,6 +66,29 @@ requirejs(['jquery','side_Toolbar','PhotoShow','CommodityDetail','allDialog','es
         goWhereRightDataID:'loginSuccess'
     })
 
+    //退出登录确认弹窗
+    $('#selectIsExit').addSmallDialog({
+        picName:'confirm',
+        tips:'是否确认退出？',
+        goWhereLeft:'确认',
+        goWhereLeftURL:'javascript:;',
+        goWhereLeftDataID:'confirmExit',
+        goWhereRight:'返回',
+        goWhereRightDataID:'cancelExit'
+    })
+
+    //确认是否删除商品弹窗
+    $("#selectDeleteCommodity").addSmallDialog({
+        picName:'confirm',
+        tips:'是否确认删除商品？',
+        goWhereLeft:'确认',
+        goWhereLeftURL:'javascript:;',
+        goWhereLeftDataID:'confirmDelete',
+        goWhereRight:'返回',
+        goWhereRightDataID:'cancelDelete'
+    })
+
+    
 
     //侧栏导航条
     $('#backtop').backTop({

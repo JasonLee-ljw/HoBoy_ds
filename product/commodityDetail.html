@@ -10,36 +10,10 @@
     
 </head>
 <body>
-    <div class="wrap commodity_detail-wrap">
-        <!-- 顶部条 -->
-        <div class="commu main-1">
-            <header class="head_Bar">
-                <span class="welcome">hi~ 欢迎来到HoBoy</span>
-                <div class="user_Admin" id="user_Admin1">
-                    <ul class="user_Item" >
-                        <li><a href="javascript:;" class="register" data-id="register_openOrClose">登录</a></li>
-                        <li><a href="javascript:;" class="login" data-id="login_openOrClose">注册</a></li>
-                        <li><a href="javascript:;" class="exit isShow" >退出</a></li>
-                    </ul>
-                    <div class="collect_shopCar">
-                        <a href="javascript:;" class="collect">收藏夹</a>
-                        <a href="../shopCar/shopcar.html" class="shopCar">购物车</a>
-                    </div>
-                </div>
-            </header>
-        </div>
-        <!-- 搜索栏 -->
-        <div class="commu  main-2">
-            <div class="seach_Bar">
-                <div class="logo">
-                    <img src="../images/logo.png" alt="HoBoy">
-                </div>
-                <div class="seach">
-                    <input type="text"  placeholder="请输入你要搜索的内容..." class="seach_box" />
-                    <input type="button"  class="seach_button">
-                </div>
-            </div>   
-        </div>
+    <div class="wrap commodity_detail-wrap" id="main_Wrap">
+        <!--页面头部动态插入-->
+
+
         <!--主菜单、商品概况-->
         <div class="commu main-3">
             
@@ -47,7 +21,7 @@
             <div class="current_router current_router-commodityDetail">
                 <dl>
                     <span>当前位置&nbsp;:</span>
-                    <dt><a href="../index.html">首页&nbsp;&gt;</a></dt>
+                    <dt><a href="../product/index.html">首页&nbsp;&gt;</a></dt>
                     <dt><a href="../product/hot.html">服饰&nbsp;&gt;</a></dt>
                     <dt><a href="../product/cloths.html">上装&nbsp;&gt;</a></dt>
                     <dt><a href="javascript:;">长安少年系列男子短袖文化衫</a></dt>
@@ -87,7 +61,7 @@
 
                 <!--商品信息-->
                 <div class="commodityMessage_wrap">
-                    <h2 id="commodity_title">{{title}}</h2>
+                    <h2 id="commodity_title" data-id='52159756'>{{title}}</h2>
                     <div class="commodityPrice">
                         <div>
                             <span >促销价：<em id="commodity_price">{{price}}</em></span>
@@ -107,8 +81,8 @@
                             <span>颜&nbsp;&nbsp;色:&nbsp;</span>
                             <ul>
                                 <li class="black focus" data-id="b01" data-value="标准黑">
-                                    <img src="../images/product/cloths/photoDetail/{{b03}}.jpg" alt="" >
-                                    <span >标准黑</span>
+                                    <img src="../images/product/cloths/photoDetail/{{b03}}.jpg" alt="" id="picURL">
+                                    <span id="commodity_color">标准黑</span>
                                 </li>
                                 <li class='zong' data-id="z01" data-value="琥珀棕">
                                     <img src="../images/product/cloths/photoDetail/{{z03}}.jpg" alt="" >
@@ -386,7 +360,7 @@
         <div class="discountsOrShopCar_panel discounts_panel">
             <header class="discounts_panelHead">
                 <h2>优惠劵</h2>
-                <span>——————可领取的劵——————</span>
+                <span style="pointer-events: none">——————可领取的劵——————</span>
                 <span class='close' data-id="close_discounts"></span>
             </header>
             <section class="discounts_item">
@@ -439,6 +413,13 @@
     <!--注册成功-->
     <div class="dialog  smallDialog_wrap isShow" id="loginSuccess">
     </div>
+
+    <!--提示是否退出登录-->
+    <div class="dialog smallDialog_wrap isShow" id="selectIsExit">  
+    </div>
+
+    
+
 
     <script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
     <script src="../js/require.js" data-main="../js/main"></script>

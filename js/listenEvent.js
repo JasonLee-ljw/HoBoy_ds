@@ -120,49 +120,45 @@ $(document).ready(function () {
             decorationsShow.fadeOut("fast");
     });
   
-   
-    
-    //登录方式切换
-    var registerWay_btn;
-    var registerBox;
-    var userName_text = $('#userName_text');
-    $('#register_openOrClose').on('click','.phoneOrPassword',function (e) {
-        registerWay_btn = $(e.target);
-        registerBox = $('#' + registerWay_btn.data('id'));
-        if(registerWay_btn.text() !== '密码登录'){
-            registerWay_btn.text('密码登录');
-            registerBox.removeClass('isShow');
-            $('#userPassage_text').addClass('isShow');
-            $('#warningOfPassage-1').addClass('isShow')
-            userName_text.attr('placeholder' ,'请输入手机号')
-        }else{
-            registerWay_btn.text('手机验证码登录');
-            registerBox.addClass('isShow');
-            $('#userPassage_text').removeClass('isShow');
-            userName_text.attr('placeholder','请输入会员号/用户名/手机号登录')
-        }  
-    });
+    //页面头部，退出登录按钮
+    $('#main_Wrap').on('click','#user_Admin1 #exit_register',function(e) {
+        if($(e.target).data('id') == 'selectIsExit'){
+            $('#selectIsExit').removeClass('isShow')
+        }
+    })
 
-    var close;
-    var registerWrap;
-    $('#register_openOrClose').on('click','span', function(e) {
-        close = $(e.target);
-        registerWrap = $('#' + close.data("id"));
-        registerWrap.addClass('isShow');
-    }).on('click','.btn_login',function () {
-        $('#register_openOrClose').addClass('isShow')
-        $('#login_openOrClose').removeClass('isShow')
-    });
-    $('#login_openOrClose').on('click','span', function(e) {
-        close = $(e.target);
-        registerWrap = $('#' + close.data("id"));
-        registerWrap.addClass('isShow');
-    });
-    $('#user_Admin1').on('click','li',function (e) {
-        close = $(e.target);
-        registerWrap = $ ('#' + close.data('id'));
+    //确认是否退出登录
+    $('#selectIsExit').on('click','a',function(e) {
+        if($(e.target).data('id') == 'cancelExit'){
+            $('#selectIsExit').addClass('isShow')
+        }else if($(e.target).data('id') == 'confirmExit'){
+            localStorage.removeItem('isRegister')//清除登录信息
+            $('.registerOrLogin_entrance').removeClass('isShow')
+            $('.userNameOrExit_entrance').addClass('isShow')
+            $('#userName_Header').text('')
+            alert('退出成功')
+            $('#selectIsExit').addClass('isShow')
+            window.location.reload()
+        }
+    })
+
+    
+
+    
+    
+
+    
+    //页面头部，登录、注册按钮
+    $('#main_Wrap').on('click','#user_Admin1 li',function (e) {
+        let close = $(e.target);
+        let registerWrap = $ ('#' + close.data('id'));
         registerWrap.removeClass('isShow');
     })
     
+
+    //弹窗背景大小
+    let screenW = document.body.scrollWidth;
+    let screenH = document.body.scrollHeight;
+    $('.dialog').css('width',screenW + 'px').css('height',screenH + 'px')
     
 });
