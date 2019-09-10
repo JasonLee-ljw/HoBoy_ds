@@ -10,7 +10,7 @@
 </head>
 <body>
     <div class="wrap" id="main_Wrap">
-        <!-- 顶部条 -->
+        <!-- 顶部条（模块化插入） -->
         
         <!--购物车详情-->
         <div class="shopCar_wrap">
@@ -41,6 +41,9 @@
                     </ul>
                 </div>
                 
+                <div class="shopCar_empty isShow" id="shopCar_empty">
+                    <a href="../product/hot.html"><img src="../images/empty.png" alt="空" title="点我去添加商品"><span>您的购物车空空如也...</span></a>
+                </div>
                 
                 <div class="commodity_account" id="commodity_totalAccount">
                     <div>
@@ -51,7 +54,7 @@
                     <ul>
                         <li class="AllselectOrDelete">
                             <input type="checkbox" id="all_Select"/>全选&nbsp;
-                            <a href="javascript:;" class="commodity_op">删除选中商品</a>
+                            <a href="javascript:;" class="commodity_op" id="delete_selectCommodity">删除选中商品</a>
                             <a href="javascript:;" class="commodity_op">移入收藏夹</a>
                             <a href="javascript:;" class="commodity_op">清空失效商品</a>
                         </li>
@@ -62,12 +65,14 @@
             </div>
             
         </div>
-        <footer></footer>
+        
+        <!-- 尾部（模块化插入） -->
     </div>
 
     <!--确认是否删除商品-->
     <div class="dialog  smallDialog_wrap isShow" id="selectDeleteCommodity">
     </div>
+
 
     <!--提示是否退出登录-->
     <div class="dialog smallDialog_wrap isShow" id="selectIsExit">  

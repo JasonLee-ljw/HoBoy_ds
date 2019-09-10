@@ -17,7 +17,7 @@
             <div class="main_Nav">
                 <ul class="main_Nav-item">
                     <li><a href="./index.html">首页</a></li>
-                    <li><a href="../product/hot.html">服饰</a></li>
+                    <li><a href="../product/hot.html" class="main_Nav-Cloths">服饰</a></li>
                 </ul>
             </div>
             <!--当前路径示意-->
@@ -34,7 +34,7 @@
         <div class="photo_Show">
             <div class="photo-item" >
                 <ul class="main-i" id="photo_wrap-detail">  
-                    <li><img src="../images/product/{{photoName}}.jpg" alt="{{alt}}" class="img-i" id="{{newAttr}}" /></li> 
+                    <li><img src="../images/product/{{photoShowName}}.jpg" alt="{{alt}}" class="img-i" id="{{newAttr}}" /></li> 
                 </ul>  
             </div>
             
@@ -53,15 +53,16 @@
             </ul>
         </div>
         
-        <!--下装-->
+        <!--装饰-->
         <div class="commu main-tops">
-            <div class="tops_set">
-                <ul id="decorations_set-wrap">
+            <div class="tops_set" id="tops_set-wrap">
+                <ul id="decorations_set-list">
                     <li class="tops_set-item" >
-                        <a href='javascript:;' ><img src="../images/product/decorations/{{photoName}}.jpg" alt="{{alt}}" data-id="newAttr"></a>
-                        <div id="newAttr">
-                            <h3>纯羊皮轻便皮衣</h3>
-                            <p>&nbsp;&nbsp;后幅主题图案定位冲孔，轻便工艺更具时尚感</p>
+                        <a href='./decorations/decorations{{commodityNo.}}.html' class="mask_layer" title="查看详情"></a>
+                        <a href='javascript:;' class="tops_set-itemPic"><img src="../images/product/{{photoFile}}{{photoFileNo.}}/{{photoName}}.jpg" alt="{{alt}}" data-id="newAttr-{{No}}"></a>
+                        <div id="newAttr-{{No}}">
+                            <h3>{{title}}</h3>
+                            <span>&nbsp;&nbsp;{{price}}</span>
                             <a href="javascript:;" class="details">查看详情</a>
                         </div>
                     </li>
@@ -69,6 +70,35 @@
             </div>  
         </div>
         
+        <!-- 侧面滚动条 -->
+        <div class="toolbar_Nav">
+            <a href="javascript:;" class="toolbar-item toolbar-item-1">
+                <span class="toolbar-item-icon">
+                    <span class="icon-wechat"></span>
+                    <i>关注 <br> 我们</i>
+                </span>
+                <span class="toolbar-item-code"></span>
+            </a>
+            <a href="javascript:;" class="toolbar-item">
+                <span class="toolbar-item-icon">
+                    <span class="icon-mail4"></span>
+                    <i>意见 <br> 反馈</i>
+                </span>
+            </a>
+            <a href="javascript:;" class="toolbar-item toolbar-item-3">
+                <span class="toolbar-item-icon">
+                    <span class="icon-mobile"></span>
+                    <i>下载<br>APP</i>
+                </span>
+                <span class="toolbar-item-code"></span>
+            </a>
+            <a href="javascript:;" class="toolbar-item" id="backtop">
+                <span class="toolbar-item-icon">
+                    <span class="icon-arrow-up2"></span>
+                    <i>返回 <br> 顶部</i>
+                </span>
+            </a>
+        </div> 
     </div>
     
     <!--登录-->

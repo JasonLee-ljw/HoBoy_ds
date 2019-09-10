@@ -30,13 +30,22 @@ define(['jquery'], function($) {
             //定义输出最终HTML的变量
             let out_main = [];
             let photoData = this.opts.photoData;
+            let photoFile = this.opts.photoFile;
+            let photoModel = this.opts.photoModel;
             for(let i = 0;i<this.photoCount;i++){
-                let main_HTML = mainModel.replace(/{{photoName}}/g,photoData[i].photoName)
+                let main_HTML = mainModel.replace(/{{photoFile}}/g,photoFile)
+                                         .replace(/{{photoName}}/g,photoModel)
+                                         .replace(/{{photoShowName}}/g,photoData[i].photoName)
                                          .replace(/{{alt}}/g,photoData[i].alt)                     
-                                         .replace(/newAttr/g,photoData[i].newAttr);
+                                         .replace(/{{No}}/g,i)
+                                         .replace(/{{commodityNo.}}/g,i)
+                                         .replace(/{{photoFileNo.}}/g,i)
+                                         .replace(/{{title}}/g,photoData[i].title)
+                                         .replace(/{{price}}/g,photoData[i].price);
                 out_main.push(main_HTML);
             }
             this.$el.html(out_main);
+           
         }else{
             let number = ['first','second','three','forth','five','six','seven','eight','nine'];
             let k = 0;
@@ -52,7 +61,8 @@ define(['jquery'], function($) {
             for(let i = 0;i<this.photoCount;i++){
                 let main_HTML = mainModel.replace(/{{newClass}}/g,photoData[i].newClass)
                                          .replace(/{{photoName}}/g,photoData[i].photoName)
-                                         .replace(/{{alt}}/g,photoData[i].alt)                     .replace(/newAttr/g,'item-' + photoData[i].newAttr);
+                                         .replace(/{{alt}}/g,photoData[i].alt)                     
+                                         .replace(/newAttr/g,'item-' + photoData[i].newAttr);
                 out_main.push(main_HTML);
             }
             this.$el.html(out_main);
@@ -101,6 +111,8 @@ define(['jquery'], function($) {
         moveDistances:750,
         isAutoPlay:true,
         isGrid:false,
+        photoFile:'',
+        photoModel:'',
         photoData:[
             {photoName:'#',alt:'#'},
             {photoName:'#',alt:'#'},

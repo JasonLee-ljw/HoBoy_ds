@@ -52,18 +52,28 @@ $(document).ready(function () {
     //上装图片详情显示
     let topHide;
     let topShow;
-    $('#tops_set-wrap').on('mouseenter','img',function(e){
-        topHide = $(e.target);
-        topHide.css('width',320 + 'px');
-        topHide.css('height',427 + 'px')
+    $('#tops_set-wrap').on('mouseenter','.mask_layer',function(e){
+        topHide = $(e.target).next().children();
         topShow = $('#'+ topHide.data('id'));
         topShow.fadeIn("slow");
-    }).on('mouseleave','img',function(e) {
-            topHide = $(e.target);
-            topHide.css('width',300 + 'px');
-            topHide.css('height',400 + 'px')
+        if(topHide.hasClass('collects_pic')){
+            topHide.css('width',200 + 'px');
+            topHide.css('height',260 + 'px')
+        }else{
+            topHide.css('width',320 + 'px');
+            topHide.css('height',427 + 'px')
+        }
+    }).on('mouseleave','.mask_layer',function(e) {
+            topHide = $(e.target).next().children();
             topShow = $('#'+ topHide.data('id'));
             topShow.fadeOut("fast");
+            if(topHide.hasClass('collects_pic')){
+                topHide.css('width',180 + 'px');
+                topHide.css('height',240 + 'px')
+            }else{
+                topHide.css('width',300 + 'px');
+                topHide.css('height',400 + 'px')
+            }
     });
 
     //下装图片详情显示
@@ -142,10 +152,6 @@ $(document).ready(function () {
         }
     })
 
-    
-
-    
-    
 
     
     //页面头部，登录、注册按钮
@@ -153,8 +159,12 @@ $(document).ready(function () {
         let close = $(e.target);
         let registerWrap = $ ('#' + close.data('id'));
         registerWrap.removeClass('isShow');
+
+    }).on('click','#collect_shopCar a',function(){//页面头部，收藏夹、购物车按钮
+        if(localStorage.getItem('isRegister') !== 'true'){
+            alert('您尚未登录，请先登录！')
+        }
     })
-    
 
     //弹窗背景大小
     let screenW = document.body.scrollWidth;

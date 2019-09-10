@@ -128,6 +128,14 @@
     display: inline-block;
 }
 
+.current_router dt a{
+    color: #000000;
+}
+
+.current_router-commodityDetail dt a{
+    color: #ffffff;
+}
+
 .current_router dt a:hover{
     font-size: 18px;
     text-decoration: dashed;
@@ -169,8 +177,8 @@
 }
 
 .tops_set  li,
-.tops_set li a{
-    display: inline-flex;
+.tops_set li .tops_set-itemPic{
+    display: inline-block;
     position: relative;
     width: 350px;
     height: 450px;
@@ -180,7 +188,23 @@
     vertical-align: middle;
 }
 
-.tops_set li img{
+.tops_set li .tops_set-itemPic,
+.tops_set li .mask_layer{
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.tops_set li .mask_layer{
+    display: inline-block;
+    width: 350px;
+    height: 450px;
+    cursor: pointer;
+    z-index: 999;
+    opacity: 0;
+}
+
+.tops_set .tops_set-itemPic img{
     width: 300px;
     height: 400px;
     margin:auto;
@@ -209,6 +233,15 @@
     margin-top: 10px;
     background-color: #000000;
 }
+
+.tops_set div span{
+    display: block;
+    width: 80px;
+    height: 30px;
+    margin: 0 auto;
+    margin-left: 120px;
+}
+
 
 /*商品详情*/
 .commodity_detail-wrap{
@@ -271,6 +304,10 @@
     flex: 1;
     position: relative;
     height: 550px;
+}
+
+.commodityDetail_wrap .commodityMessage_wrap li{
+    margin-right: 10px;
 }
 
 .commodityPhoto_wrap .transparent{
@@ -353,6 +390,7 @@
     vertical-align:baseline;
 }
 
+
 .commodityMessage_wrap .commodityPrice .discounts a{
     display: inline-block;
     padding-left: 29px;
@@ -411,6 +449,8 @@
 
 .commodityMessage_wrap .commodityStyle img{
     vertical-align: middle;
+    margin-right: 10px;
+    margin-left: 3px;
 }
 
 .commodityStyle .commodityStyle_size li{

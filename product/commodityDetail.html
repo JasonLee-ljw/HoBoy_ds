@@ -38,14 +38,17 @@
                             </div>    
                         </div>    
                     </div>
-                    <div class="commoditySmallPhoto_wrap" id="b01">
-                        <img src="../images/product/cloths/photoDetail/{{b02}}.jpg" alt="{{alt}}-small" title="{{alt}}-small" data-id="middleFront">
-                        <img src="../images/product/cloths/photoDetail/{{b12}}.jpg" alt="{{alt}}-small" title="{{alt}}-small" data-id="middleBack">
+                    <div>
+                        <div class="commoditySmallPhoto_wrap" id="{{b01}}">
+                            <img src="../images/product/cloths/photoDetail/{{b02}}.jpg" alt="{{alt}}-small" title="{{alt}}-small" data-id="middleFront">
+                            <img src="../images/product/cloths/photoDetail/{{b12}}.jpg" alt="{{alt}}-small" title="{{alt}}-small" data-id="middleBack">
+                        </div>
+                        <div class="commoditySmallPhoto_wrap isShow" id="{{z01}}">
+                            <img src="../images/product/cloths/photoDetail/{{z02}}.jpg" alt="{{alt}}-small" title="{{alt}}-small" data-id="middleFront">
+                            <img src="../images/product/cloths/photoDetail/{{z12}}.jpg" alt="{{alt}}-small" title="{{alt}}-small" data-id="middleBack">
+                        </div>
                     </div>
-                    <div class="commoditySmallPhoto_wrap isShow" id="z01">
-                        <img src="../images/product/cloths/photoDetail/{{z02}}.jpg" alt="{{alt}}-small" title="{{alt}}-small" data-id="middleFront">
-                        <img src="../images/product/cloths/photoDetail/{{z12}}.jpg" alt="{{alt}}-small" title="{{alt}}-small" data-id="middleBack">
-                    </div>
+                    
                     <div class="transparent" data-id="bigGlass"></div>
                     <div class="queeze isShow" id="bigGlass"></div>
                 </div>
@@ -80,11 +83,11 @@
                         <div class="commodityStyle_color">
                             <span>颜&nbsp;&nbsp;色:&nbsp;</span>
                             <ul>
-                                <li class="black focus" data-id="b01" data-value="标准黑">
+                                <li class="black focus" data-id="{{b01}}" data-value="标准黑">
                                     <img src="../images/product/cloths/photoDetail/{{b03}}.jpg" alt="" id="picURL">
                                     <span id="commodity_color">标准黑</span>
                                 </li>
-                                <li class='zong' data-id="z01" data-value="琥珀棕">
+                                <li class='zong' data-id="{{z01}}" data-value="琥珀棕">
                                     <img src="../images/product/cloths/photoDetail/{{z03}}.jpg" alt="" >
                                     <span >琥珀棕</span>
                                 </li>       
@@ -113,7 +116,7 @@
                     <div class="commodityShop">
                         <div class="commodityShopCar">
                             <a href="javascript:;" title="加入购物车" data-id="addToShopCar"><img src="../images/shopCar1.png" alt="" data-id="addToShopcar"><span>加入购物车</span></a>
-                            <a href="javascript:;" title="加入收藏夹" data-id="addToCollect"><img src="../images/collect.png" alt="" ><span>收&nbsp;&nbsp;藏</span></a>
+                            <a href="javascript:;" title="加入收藏夹" data-id="addToCollect"><img src="../images/collect.png" alt="" data-id="addToCollect"><span>收&nbsp;&nbsp;藏</span></a>
                         </div>
                         <div>
                             <span>分&nbsp;&nbsp;享：</span>
@@ -126,200 +129,9 @@
                     </div>
                 </div>
             </div>
+
             <!--商品详情列表--> 
-            <div class="commodity_list">
-                <div class="commodity_information-item item-1">
-                    <h3 class="label">商品信息</h3>
-                    <ul class="commodity_number">
-                        <li>
-                           <span>编&nbsp;&nbsp;&nbsp;&nbsp;号：52159756</span>
-                        </li>
-                        <li>
-                           <span>颜&nbsp;&nbsp;&nbsp;&nbsp;色：标准黑</span>
-                        </li>
-                        <li>
-                           <span>领&nbsp;&nbsp;&nbsp;&nbsp;型：圆领</span>
-                        </li>
-                        <li>
-                           <span>衣&nbsp;&nbsp;&nbsp;&nbsp;长：适中</span>
-                        </li>
-                        <li>
-                           <span>袖&nbsp;&nbsp;&nbsp;&nbsp;长：短袖</span>
-                        </li>
-                        <li>
-                           <span>版&nbsp;&nbsp;&nbsp;&nbsp;型：正常</span>
-                        </li>
-                        <li>
-                           <span>经典款型：LOGO/Slogan tee</span>
-                        </li>
-                        <li>
-                           <span>袖&nbsp;&nbsp;&nbsp;&nbsp;型：正常</span>
-                        </li>
-                        <li>
-                           <span>肩&nbsp;&nbsp;&nbsp;&nbsp;型：正常</span>
-                        </li>
-                        
-                    </ul>
-                    <div class="commodity_other">
-                        <ul>
-                            <li>
-                                <span>弹&nbsp;&nbsp;性：</span>
-                                <em>小</em>
-                                <i></i>
-                                <i class="focus_1"></i>
-                                <i></i>
-                                <i></i>
-                                <i></i>
-                                <em>大</em>
-                            </li>
-                            <li>
-                                <span>厚&nbsp;&nbsp;度：</span>
-                                <em>薄</em>
-                                <i></i>
-                                <i></i>
-                                <i class="focus_1"></i>
-                                <i></i>
-                                <i></i>
-                                <em>厚</em>
-                            </li>
-                            <li>
-                                <span>柔软度：</span>
-                                <em>软</em>
-                                <i class="focus_1"></i>
-                                <i></i>
-                                <i></i>
-                                <i></i>
-                                <i></i>
-                                <em>硬</em>
-                            </li>
-                            <li>
-                                <span>透气性：</span>
-                                <em>弱</em>
-                                <i></i>
-                                <i></i>
-                                <i></i>
-                                <i class="focus_1"></i>
-                                <i></i>
-                                <em>强</em>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="commodity_information-item item-2">
-                    <span>————————————————————&nbsp;<span class="label">材质洗涤</span>&nbsp;————————————————————</span>
-                    <div class="commodity_material">
-                        <div>
-                            <img src="../images/cotton.jpg" alt="棉质">
-                            <span>棉<br>cotton</span>
-                        </div>
-                        <p>用各种洗涤剂，可手洗机洗，但不宜氯漂，宜阴干，避免曝晒，以免深色衣物褪色。浸泡时间不能太长，避免褪色，深色与浅色衣服最好分开洗涤，避免染色。棉质商品一般易皱、易缩水、易变形购买时请注意。</p>
-                    </div>
-                </div>
-                <div class="commodity_information-item item-3">
-                    <span>————————————————————&nbsp;<span class="label">尺码信息</span>&nbsp;————————————————————</span>
-                    <table>
-                        <tbody>
-                            <tr>
-                                <th>吊牌尺寸</th>
-                                <th>参考尺码</th>
-                                <th>肩宽</th>
-                                <th>胸围</th>
-                                <th>袖长</th>
-                                <th>前衣长</th>
-                                <th>后衣长</th>
-                            </tr>
-                            <tr>
-                                <td>S</td>
-                                <td>165/88A</td>
-                                <td>42</td>
-                                <td>98</td>
-                                <td>20</td>
-                                <td>67</td>
-                                <td>67</td>
-                            </tr>
-                            <tr>
-                                <td>M</td>
-                                <td>170/92A</td>
-                                <td>43</td>
-                                <td>102</td>
-                                <td>21</td>
-                                <td>69</td>
-                                <td>69</td>
-                            </tr>
-                            <tr>
-                                <td>L</td>
-                                <td>175/96A</td>
-                                <td>45</td>
-                                <td>106</td>
-                                <td>21</td>
-                                <td>70</td>
-                                <td>70</td>
-                            </tr>
-                            <tr>
-                                <td>XL</td>
-                                <td>180/100A</td>
-                                <td>46</td>
-                                <td>110</td>
-                                <td>22</td>
-                                <td>73</td>
-                                <td>73</td>
-                            </tr>
-                            <tr>
-                                <td>XXL</td>
-                                <td>185/104A</td>
-                                <td>47</td>
-                                <td>114</td>
-                                <td>23</td>
-                                <td>75</td>
-                                <td>75</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                    <P>※ 以上尺寸为实物人工测量，因测量方式不同会有1-2CM误差，相关数据仅作参考，以收到实物为准。 单位：CM 
-                       ※ 参考尺码因衣服版型、剪裁不同会有误差，仅供参考</P>
-                    <div>
-                        <img src="../images/tops.jpg" alt="上衣各部分尺寸示意">
-                    </div>
-                </div>
-                <div class="commodity_information-item item-4">
-                    <span>————————————————————&nbsp;<span class="label">商品详情</span>&nbsp;————————————————————</span>
-                    <p>BADFIVE长安少年系列短袖文化衫，运用简洁的色彩搭配，简洁时尚。采用棉涤材质，亲肤舒适，提升穿着体验。左下摆处“长安少年”别注织唛。衣服结合当地文化与我们BADFIVE街头特性，古文化与现代结合的联名单品。</p>
-                    <img src="../images/product/cloths/photoDetail/b00.jpg" alt="标准黑正面图">
-                    <img src="../images/product/cloths/photoDetail/b10.jpg" alt="标准黑背面图">
-                    <p>衣面“BADFIVE”街头印花结合长安元素，将传统文化融入现代街头潮流，不同配色，多种花样，趣味满载，不失格调宽松自在版式设计，无惧束缚，放肆而动<br>
-                    衣服上整齐的车缝线，细密缝制，凸显品质感<br>
-                    甄选质感棉料打造，手感细腻而舒适挺括，随心去动</p>
-                    <img src="../images/product/cloths/photoDetail/z00.jpg" alt="琥珀棕正面图">
-                    <img src="../images/product/cloths/photoDetail/z10.jpg" alt="琥珀棕背面图">
-                </div>
-                <div class="commodity_information-item item-5" id="commodity_evaluate-wrap">
-                    <span>————————————————————&nbsp;<span class="label">商品评价</span>&nbsp;————————————————————</span>
-                    <div class="commodity_evaluate-title">
-                        <a href="javascript:;" class="isActive"><span>全部（88）</span></a>
-                        <a href="javascript:;"><span>有图（58）</span></a>
-                        
-                    </div>
-                    <div class="commodity_evaluate-contents">
-                        <div class="start"></div>
-                        <div>
-                            <div>
-                                <span></span>
-                                <img src="" alt="">
-                                <span></span>
-                            </div>
-                            <div>
-                                <ul>
-                                    <li></li>
-                                    <li></li>
-                                    <li></li>
-                                    <li></li>
-                                    <li></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            
 
             <!-- 侧面滚动条 -->
             <div class="toolbar_Nav">

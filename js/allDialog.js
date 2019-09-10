@@ -5,6 +5,13 @@ define(['jquery'],function($) {
         this.registerModel;
         this.loginModel;
         this.addSuccessModel;
+        if(this.$el.hasClass('products')){
+            this.opts.registerPic1 = '../../images/ValidateCode.jpg'
+            this.opts.registerPic2 = '../../images/weixin.png'
+            this.opts.registerPic3 = '../../images/weibo.png'
+            this.opts.registerPic4 = '../../images/qq.png'
+            this.opts.picURL = '../../images/'
+        }
     }
     
     //登录弹窗
@@ -163,6 +170,7 @@ define(['jquery'],function($) {
     
     //小号弹窗
     AllDialog.prototype.smallDialog = function (options) {
+        let picURL = this.opts.picURL;
         let picName = this.opts.picName;
         let tips = this.opts.tips;
         let goWhereLeft = this.opts.goWhereLeft;
@@ -173,7 +181,7 @@ define(['jquery'],function($) {
         this.addSuccessModel = 
             "<div class='smallDialog_panel'>"+
                 "<div class='tips_title'>"+
-                    `<img src='../images/${picName}.png' alt='成功'>`+
+                    `<img src='${picURL}${picName}' alt='成功'>`+
                     "<h2>"+`${tips}`+"</h2>"+
                 "</div>"+
                 "<div class='goWhere'>"+
@@ -185,6 +193,7 @@ define(['jquery'],function($) {
     }
     
     AllDialog.DEFAULT = {
+        picURL:'../images/',
         picName:'',
         tips:'',
         goWhereLeft:'',

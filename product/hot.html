@@ -17,7 +17,7 @@
             <div class="main_Nav">
                 <ul class="main_Nav-item">
                     <li><a href="./index.html">首页</a></li>
-                    <li><a href="../product/hot.html">服饰</a></li>
+                    <li><a href="../product/hot.html" class="main_Nav-Cloths">服饰</a></li>
                 </ul>
             </div>
         </div>
@@ -25,7 +25,7 @@
         <div class="photo_Show">
             <div class="photo-item" >
                 <ul class="main-i" id="photo_wrap-detail">  
-                    <li><img src="../images/product/{{photoName}}.jpg" alt="{{alt}}" class="img-i" id="{{newAttr}}" /></li> 
+                    <li><img src="../images/product/{{photoShowName}}.jpg" alt="{{alt}}" class="img-i" id="{{newAttr}}" /></li> 
                 </ul>  
             </div>
             
@@ -60,6 +60,35 @@
             </div>
         </div>
         
+        <!-- 侧面滚动条 -->
+        <div class="toolbar_Nav">
+            <a href="javascript:;" class="toolbar-item toolbar-item-1">
+                <span class="toolbar-item-icon">
+                    <span class="icon-wechat"></span>
+                    <i>关注 <br> 我们</i>
+                </span>
+                <span class="toolbar-item-code"></span>
+            </a>
+            <a href="javascript:;" class="toolbar-item">
+                <span class="toolbar-item-icon">
+                    <span class="icon-mail4"></span>
+                    <i>意见 <br> 反馈</i>
+                </span>
+            </a>
+            <a href="javascript:;" class="toolbar-item toolbar-item-3">
+                <span class="toolbar-item-icon">
+                    <span class="icon-mobile"></span>
+                    <i>下载<br>APP</i>
+                </span>
+                <span class="toolbar-item-code"></span>
+            </a>
+            <a href="javascript:;" class="toolbar-item" id="backtop">
+                <span class="toolbar-item-icon">
+                    <span class="icon-arrow-up2"></span>
+                    <i>返回 <br> 顶部</i>
+                </span>
+            </a>
+        </div> 
     </div>
 
     <!--登录-->

@@ -11,19 +11,18 @@
 </head>
 <body>
     <div class="wrap" id="main_Wrap">
-        <!-- 顶部条 -->
-        
-
+        <!-- 顶部条（模块插入） -->
         
         <!--导航菜单-->
         <div class="commu main-3">
             <div class="main_Nav">
                 <ul class="main_Nav-item">
-                    <li><a href="/product/index.html">首页</a></li>
+                    <li><a href="/product/index.html" class="main_Nav-index">首页</a></li>
                     <li><a href="./hot.html">服饰</a></li>
                 </ul>
             </div>
         </div>
+
         <!-- 菜单栏、搭配展示栏 -->
         <div class="commu">
             <div class="nav_Bar">
@@ -135,7 +134,7 @@
                 <div class="photo_Show" >
                     <div class="photo-item">
                         <ul class="main-i" id="photo_wrap">  
-                            <li><img src="../images/weekend/{{photoName}}.png" alt="{{alt}}" class="img-i" id="newAttr" /></li> 
+                            <li><img src="../images/weekend/{{photoShowName}}.png" alt="{{alt}}" class="img-i" id="newAttr" /></li> 
                         </ul>   
                     </div>
                     
@@ -145,100 +144,73 @@
                 </div>
             </div>   
         </div>
+
         <!-- 热卖榜 -->
         <div class="commu">
             <div class="hot_sale">
                 <div class="store_manager" >
-                    <span></span>
-                    <img src="../images/hot_sale/store manager.png" style="width: 700px;height: 100px;"   alt="店长推荐">
+                    <span>--------------------------------------------------&nbsp;<em>最新上架</em>&nbsp;--------------------------------------------------</span>
                 </div>
                 <ul class="hot_photo" id="hot_photo-Wrap">
                     <li class="first">
-                        <a href="javascript:;"><img src="../images/hot_sale/show.png" alt="" data-id="first-div"></a>
-                        <div class="first-item common-item" id="first-div">
-                                <h3>纯羊皮轻便皮衣</h3>
-                                <p>&nbsp;&nbsp;后幅主题图案定位冲孔，轻便工艺更具时尚感</p>
-                                <a href="javascript:;" class="details">查看详情</a>
+                        <a href="javascript:;"><img src="../images/hot_sale/hoodie.jpg" alt="" data-id="first-div"></a>
+                        <div class="first-item common-item" title="查看详情" id="first-div" title="查看详情">
                         </div>
                     </li>
                     <li class="second" id="second-i">
-                        <a href="javascript:;" ><img src="../images/hot_sale/show1.png" alt="" data-id="second-div"></a>
-                        <div class="second-item " id="second-div">
-                            <h2>纯羊皮轻便皮衣B6AK1800</h2>
-                            <p>&nbsp;&nbsp;后幅主题图案定位冲孔，整件采用先进的撞色移膜工艺，单层皮料，无需里布，轻便工艺更具时尚感，亮色辅料和拉链点缀增加品质感</p>
-                            <a href="javascript:;" class="details">查看详情</a>
-                        </div><!-- <img src="./images/hot_sale/show1.png" alt=""> -->
+                        <a href="javascript:;" ><img src="../images/hot_sale/T-shirt.jpg" alt="" data-id="second-div"></a>
+                        <div class="second-item " title="查看详情" id="second-div">
+                            
+                        </div>
                     </li>
                     <li class="three">
-                        <a href="javascript:;"><img src="../images/hot_sale/show.png" alt="" data-id="three-div"></a>
-                        <div class="three-item common-item" id="three-div">
-                                <h3>纯羊皮轻便皮衣</h3>
-                                <p>&nbsp;&nbsp;后幅主题图案定位冲孔，轻便工艺更具时尚感</p>
-                                <a href="javascript:;" class="details">查看详情</a>
+                        <a href="javascript:;"><img src="../images/hot_sale/selected.jpg" alt="" data-id="three-div"></a>
+                        <div class="three-item common-item" title="查看详情" id="three-div">
+                           
                         </div>
                     </li>
                     <li class="forth">
-                        <a href="javascript:;"><img src="../images/hot_sale/show.png" alt="" data-id="forth-div"></a>
-                        <div class="forth-item common-item" id="forth-div">
-                            <h3>纯羊皮轻便皮衣</h3>
-                            <p>&nbsp;&nbsp;后幅主题图案定位冲孔，轻便工艺更具时尚感</p>
-                            <a href="javascript:;" class="details">查看详情</a>
+                        <a href="javascript:;"><img src="../images/hot_sale/jeans.jpg" alt="" data-id="forth-div"></a>
+                        <div class="forth-item common-item" title="查看详情" id="forth-div">
+                            
                         </div>
                     </li>
                     <li class="five">
-                        <a href="javascript:;"><img src="../images/hot_sale/show.png" alt="" data-id="five-div"></a>
-                        <div class="five-item common-item" id="five-div">
-                            <h3>纯羊皮轻便皮衣</h3>
-                            <p>&nbsp;&nbsp;后幅主题图案定位冲孔，轻便工艺更具时尚感</p>
-                            <a href="javascript:;" class="details">查看详情</a>
+                        <a href="javascript:;"><img src="../images/hot_sale/pants.jpg" alt="" data-id="five-div"></a>
+                        <div class="five-item common-item" title="查看详情" id="five-div">
+                            
                         </div>
                     </li>
                     <li class="six">
-                        <a href="javascript:;"><img src="../images/hot_sale/show.png" alt="" data-id="six-div"></a>
-                        <div class="six-item common-item" id="six-div">
-                            <h3>纯羊皮轻便皮衣</h3>
-                            <p>&nbsp;&nbsp;后幅主题图案定位冲孔，轻便工艺更具时尚感</p>
-                            <a href="javascript:;" class="details">查看详情</a>
+                        <a href="javascript:;"><img src="../images/hot_sale/sneaker.jpg" alt="" data-id="six-div"></a>
+                        <div class="six-item common-item" title="查看详情" id="six-div">
+                            
                         </div>
                     </li>
                     <li class="seven">
-                        <a href="javascript:;"><img src="../images/hot_sale/show.png" alt="" data-id="seven-div"></a>
-                        <div class="seven-item common-item" id="seven-div">
-                            <h3>纯羊皮轻便皮衣</h3>
-                            <p>&nbsp;&nbsp;后幅主题图案定位冲孔，轻便工艺更具时尚感</p>
-                            <a href="javascript:;" class="details">查看详情</a>
+                        <a href="javascript:;"><img src="../images/hot_sale/boots.jpg" alt="" data-id="seven-div"></a>
+                        <div class="seven-item common-item" title="查看详情" id="seven-div">
+                            
                         </div>
                     </li>
                     <li class="eight">
-                        <a href="javascript:;"><img src="../images/hot_sale/show.png" alt="" data-id="eight-div"></a>
-                        <div class="eight-item common-item" id="eight-div">
-                            <h3>纯羊皮轻便皮衣</h3>
-                            <p>&nbsp;&nbsp;后幅主题图案定位冲孔，轻便工艺更具时尚感</p>
-                            <a href="javascript:;" class="details">查看详情</a>
+                        <a href="javascript:;"><img src="../images/hot_sale/selected_pants.jpg" alt="" data-id="eight-div"></a>
+                        <div class="eight-item common-item" title="查看详情" id="eight-div">
                         </div>
                     </li>
                     <li class="nine">
-                        <a href="javascript:;"><img src="../images/hot_sale/show.png" alt="" data-id="nine-div"></a>
-                        <div class="nine-item common-item" id="nine-div">
-                            <h3>纯羊皮轻便皮衣</h3>
-                            <p>&nbsp;&nbsp;后幅主题图案定位冲孔，轻便工艺更具时尚感</p>
-                            <a href="javascript:;" class="details">查看详情</a>
+                        <a href="javascript:;"><img src="../images/hot_sale/bag.jpg" alt="" data-id="nine-div"></a>
+                        <div class="nine-item common-item" title="查看详情" id="nine-div">
                         </div>
                     </li> 
                 </ul>
             </div>
             
         </div>
-        <!-- 尾注 -->
-        <div class="commu">
-            <footer>
-                <div class="about">
-                    <span>
 
-                    </span>
-                </div>
-            </footer>
-        </div>
+        <!-- 尾注（模块插入）-->
+        
+
         <!-- 侧面滚动条 -->
         <div class="toolbar_Nav">
             <a href="javascript:;" class="toolbar-item toolbar-item-1">
@@ -275,9 +247,11 @@
     <div class='dialog register_wrap isShow' id='register_openOrClose'>
 
     </div>
+
     <!--新用户注册-->
     <div class="dialog login_wrap isShow" id="login_openOrClose">
-
+    </div>
+    
      <!--提示是否注册-->
     <div class="dialog  smallDialog_wrap isShow" id="returnLogin">
     </div>
