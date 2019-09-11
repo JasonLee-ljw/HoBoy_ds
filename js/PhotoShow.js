@@ -108,7 +108,7 @@ define(['jquery'], function($) {
     PhotoShow.DEFAULT = {
         controlDom:'',
         showSpeed:2000,
-        moveDistances:750,
+        moveDistances:950,
         isAutoPlay:true,
         isGrid:false,
         photoFile:'',

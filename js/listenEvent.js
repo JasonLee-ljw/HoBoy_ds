@@ -42,14 +42,13 @@ $(document).ready(function () {
         hotHide = $(e.target);
         hotShow = $('#'+ hotHide.data('id'));
         hotShow.fadeIn("slow");
-    });
-    $('#hot_photo-Wrap').on('mouseleave','div',function(e) {
+    }).on('mouseleave','div',function(e) {
         hotHide = $(e.target);
         hotHide.fadeOut('fast');
     });
     
 
-    //上装图片详情显示
+    //服饰页面图片显示
     let topHide;
     let topShow;
     $('#tops_set-wrap').on('mouseenter','.mask_layer',function(e){
@@ -64,71 +63,71 @@ $(document).ready(function () {
             topHide.css('height',427 + 'px')
         }
     }).on('mouseleave','.mask_layer',function(e) {
-            topHide = $(e.target).next().children();
-            topShow = $('#'+ topHide.data('id'));
-            topShow.fadeOut("fast");
-            if(topHide.hasClass('collects_pic')){
-                topHide.css('width',180 + 'px');
-                topHide.css('height',240 + 'px')
-            }else{
-                topHide.css('width',300 + 'px');
-                topHide.css('height',400 + 'px')
-            }
-    });
+        topHide = $(e.target).next().children();
+        topShow = $('#'+ topHide.data('id'));
+        topShow.fadeOut("fast");
+        if(topHide.hasClass('collects_pic')){
+            topHide.css('width',180 + 'px');
+            topHide.css('height',240 + 'px')
+        }else{
+            topHide.css('width',300 + 'px');
+            topHide.css('height',400 + 'px')
+        }
+    })
 
-    //下装图片详情显示
-    let pantsHide;
-    let pantsShow;
-    $('#pants_set-wrap').on('mouseenter','img',function(e){
-        pantsHide = $(e.target);
-        pantsHide.css('width',320 + 'px');
-        pantsHide.css('height',427 + 'px')
-        pantsShow = $('#'+ pantsHide.data('id'));
-        pantsShow.fadeIn("slow");
+    // //下装图片详情显示
+    // let pantsHide;
+    // let pantsShow;
+    // $('#pants_set-wrap').on('mouseenter','img',function(e){
+    //     pantsHide = $(e.target);
+    //     pantsHide.css('width',320 + 'px');
+    //     pantsHide.css('height',427 + 'px')
+    //     pantsShow = $('#'+ pantsHide.data('id'));
+    //     pantsShow.fadeIn("slow");
 
-    }).on('mouseleave','img',function(e) {
-            pantsHide = $(e.target);
-            pantsHide.css('width',300 + 'px');
-            pantsHide.css('height',400 + 'px')
-            pantsShow = $('#'+ pantsHide.data('id'));
-            pantsShow.fadeOut("fast");
-    });
+    // }).on('mouseleave','img',function(e) {
+    //         pantsHide = $(e.target);
+    //         pantsHide.css('width',300 + 'px');
+    //         pantsHide.css('height',400 + 'px')
+    //         pantsShow = $('#'+ pantsHide.data('id'));
+    //         pantsShow.fadeOut("fast");
+    // });
 
     //鞋子图片详情显示
-    let shoesHide;
-    let shoesShow;
-    $('#shoes_set-wrap').on('mouseenter','img',function(e){
-        shoesHide = $(e.target);
-        shoesHide.css('width',320 + 'px');
-        shoesHide.css('height',427 + 'px')
-        shoesShow = $('#'+ shoesHide.data('id'));
-        shoesShow.fadeIn("slow");
+    // let shoesHide;
+    // let shoesShow;
+    // $('#shoes_set-wrap').on('mouseenter','img',function(e){
+    //     shoesHide = $(e.target);
+    //     shoesHide.css('width',320 + 'px');
+    //     shoesHide.css('height',427 + 'px')
+    //     shoesShow = $('#'+ shoesHide.data('id'));
+    //     shoesShow.fadeIn("slow");
 
-    }).on('mouseleave','img',function(e) {
-            shoesHide = $(e.target);
-            shoesHide.css('width',300 + 'px');
-            shoesHide.css('height',400 + 'px')
-            shoesShow = $('#'+ shoesHide.data('id'));
-            shoesShow.fadeOut("fast");
-    });
+    // }).on('mouseleave','img',function(e) {
+    //         shoesHide = $(e.target);
+    //         shoesHide.css('width',300 + 'px');
+    //         shoesHide.css('height',400 + 'px')
+    //         shoesShow = $('#'+ shoesHide.data('id'));
+    //         shoesShow.fadeOut("fast");
+    // });
 
     //装饰图片详情显示
-    let decorationsHide;
-    let decorationsShow;
-    $('#decorations_set-wrap').on('mouseenter','img',function(e){
-        decorationsHide = $(e.target);
-        decorationsHide.css('width',320 + 'px');
-        decorationsHide.css('height',427 + 'px')
-        decorationsShow = $('#'+ decorationsHide.data('id'));
-        decorationsShow.fadeIn("slow");
+    // let decorationsHide;
+    // let decorationsShow;
+    // $('#decorations_set-wrap').on('mouseenter','img',function(e){
+    //     decorationsHide = $(e.target);
+    //     decorationsHide.css('width',320 + 'px');
+    //     decorationsHide.css('height',427 + 'px')
+    //     decorationsShow = $('#'+ decorationsHide.data('id'));
+    //     decorationsShow.fadeIn("slow");
 
-    }).on('mouseleave','img',function(e) {
-            decorationsHide = $(e.target);
-            decorationsHide.css('width',300 + 'px');
-            decorationsHide.css('height',400 + 'px')
-            decorationsShow = $('#'+ decorationsHide.data('id'));
-            decorationsShow.fadeOut("fast");
-    });
+    // }).on('mouseleave','img',function(e) {
+    //         decorationsHide = $(e.target);
+    //         decorationsHide.css('width',300 + 'px');
+    //         decorationsHide.css('height',400 + 'px')
+    //         decorationsShow = $('#'+ decorationsHide.data('id'));
+    //         decorationsShow.fadeOut("fast");
+    // });
   
     //页面头部，退出登录按钮
     $('#main_Wrap').on('click','#user_Admin1 #exit_register',function(e) {

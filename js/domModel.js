@@ -1,20 +1,27 @@
 define(['jquery'],function($){
     localStorage.setItem('commodity_id',0)
+    localStorage.setItem('collects_id',0)
+    localStorage.setItem('seachResult_id',0)
     function domModel(el,options) {
         this.opts = $.extend({},domModel.DEFAULT,options)
         this.$el = $(el)
         if(this.$el.hasClass('products')){
             this.opts.headerPicURL = '../../images/'
             this.opts.footerCode = '../../images/'
+            this.opts.seachURL = '../'
+        }else if(this.$el.hasClass('shopCarAndCollects')){
+            this.opts.seachURL = '../product/'
         }else{
             this.opts.headerPicURL = '../images/'
             this.opts.footerCode = '../images/'
+            this.opts.seachURL = './'
         }
     }
 
     //头部HTML模板
     domModel.prototype.insertHeader = function () {
         let picURL = this.opts.headerPicURL;
+        let seachURL = this.opts.seachURL;
         let header = 
             "<header class='head_Bar'>"+
             "<!-- 顶部条 -->"+
@@ -35,14 +42,18 @@ define(['jquery'],function($){
             "</div>"+
             
             "<!--搜索栏-->"+
-            "<div class='seach_Bar'>"+
+            "<div class='seach_Bar' id='seach_Bar'>"+
                 "<div class='logo'>"+
                     `<img src='${picURL}logo.png' alt='HoBoy'>`+
-                    `<img src='${picURL}font_logo.png' alt='HoBoy' class='font_logo'>`+
+                    `<img src='${picURL}font_logo.png' alt='HoBoy' class='font_logo' title='HoBoy--专注潮流男装'>`+
                 "</div>"+
                 "<div class='seach'>"+
-                    "<input type='text'  placeholder='请输入你要搜索的内容...' class='seach_box' />"+
-                    "<input type='button'  class='seach_button'>"+
+                    "<div class='realTime_result isShow' id='realTime_result'>"+
+                    "</div>"+
+                    "<a href='javascript:;' class='resule_none isShow' id='result_none'>"+"无符合的商品"+"</a>"+
+                    "<input type='text'  placeholder='请输入你要搜索的内容...' class='seach_box' id='seach_input'/>"+
+                    `<a href='${seachURL}seachResult.html' title='搜索' class='seach_button' id='seach_btn'>`+
+                    
                 "</div>"+
             "</div>"+   
         "</header>"
@@ -65,7 +76,7 @@ define(['jquery'],function($){
                 "<em>"+"广东省深圳市福田区江东街文化创意园HoBoy888"+"</em>"+
                 "<div class='weixin_code'>"+
                     `<img src='${code}weixin_code.JPG' alt='HoBoy'>`+
-                    "<span>"+"扫描关注HoBOY官方微信公众号"+"</span>"+
+                    "<span>"+"扫描关注HoBoy官方微信公众号"+"</span>"+
                 "</div>"+ 
             "</div>"+
         "</footer>"
@@ -111,7 +122,8 @@ define(['jquery'],function($){
                 "</li>"+
                 "<li class='removeOrCollect'>"+
                     "<a href='javascript:;' >"+`<span class='deleteCommodity' data-id='commodity_contents-${newNum}'>`+"删除"+"</span>"+"</a>"+
-                    "<a href='javascript:;'>"+"<span>"+"移入收藏夹"+"</span>"+"</a>"+
+                    "<a href='javascript:;'>"+`<span class='addToCollects' data-id='commodity_contents1-${newNum}'>`+"移入收藏夹"+"</span>"+"</a>"+
+                    `<span class='warningOf isShow' id='${newNum}'>收藏夹已存在该商品</span>`
                 "</li>"+
             "</ul>"+
         "</div>"
@@ -119,27 +131,45 @@ define(['jquery'],function($){
         this.$el.before(commodityDom)
     }
 
-    //收藏夹商品模板
-    domModel.prototype.insertCollect = function() {
+    //收藏夹/搜索结果商品模板
+    domModel.prototype.insertCollectOrSeachResult = function() {
         let commodityURL = this.opts.collectsCommodity.commodityURL;
         let picURL = this.opts.collectsCommodity.picURL;
         let title = this.opts.collectsCommodity.title;
         let price = this.opts.collectsCommodity.price;
-        let newNum = parseInt(localStorage.getItem('commodity_id')) + 1;
-        localStorage.setItem('commodity_id',`${newNum}`)
-        let collectDom = 
+        let isCollect = this.opts.isCollect;
+
+        let newNum = 0;
+        if(!isCollect){
+            newNum = parseInt(localStorage.getItem('seachResult_id')) + 1;
+            localStorage.setItem('seachResult_id',`${newNum}`)
+        }else{
+            newNum = parseInt(localStorage.getItem('collects_id')) + 1;
+            localStorage.setItem('collects_id',`${newNum}`)
+            
+        }
+        
+        let CollectOrSeachResultDom = 
         "<li class='tops_set-item' >"+
             "<div class='collects_commodityBackground'>"+
-                `<a href='../product/${commodityURL}' class='mask_layer' title='查看详情'>`+"</a>"+
-                "<a href='javascript:;' class='tops_set-itemPic'>"+`<img src='${picURL}' alt='{{alt}}' data-id='newAttr-${newNum}' class='collects_pic'>`+"</a>"+
-                `<div id='newAttr-${newNum}' class='detail_describe'>`+
-                    "<h6 >"+`${title}`+"</h6>"+
-                    "<span>"+"&nbsp;&nbsp;"+`${price}`+"</span>"+
-                    "<a href='javascript:;' class='details'>"+"查看详情"+"</a>"+
+                "<a href='javascript:;' class='tops_set-itemPic' id='pic_wrap'>"+`<img src='${picURL}' alt='{{alt}}' data-id='newAttr-${newNum}' class='collects_pic'>`+"</a>"+
+                `<div id='newAttr-${newNum}' class='detail_describe' style='display:none'>`+
+                    "<h5 >"+`${title}`+"</h5>"+
+                    "<span style='pointer-events: none'>"+"&nbsp;&nbsp;"+`${price}`+"</span>"+
+                    `<a href='../product/${commodityURL}' class='details'>`+"查看详情"+"</a>"+
                 "</div>"+
             "</div>"+
         "</li>"
-        this.$el.append(collectDom)
+        this.$el.append(CollectOrSeachResultDom)
+
+        if(isCollect){
+            let collectDom = 
+            `<a href='javascript:;' id='delete_current' class='removeCollect' data-id='${newNum}'>`+"移出收藏夹"+"</a>"
+            this.$el.find(`#newAttr-${newNum}`).append(collectDom);
+            
+            
+     
+        }
     }
 
     //商品属性选择
@@ -261,6 +291,8 @@ define(['jquery'],function($){
     domModel.DEFAULT = {
         headerPicURL:'../images/',
         footerCode:'../imgages/',
+        seachURL:'./',
+        isCollect:false,
         ShopCarcommodities:{
            picURL:'',
            title:'',
@@ -315,8 +347,8 @@ define(['jquery'],function($){
         insertCommodityDetail:function(opts){
             new domModel(this,opts).insertCommodityAttr()
         },
-        insertCollect:function(opts){
-            new domModel(this,opts).insertCollect()
+        insertCollectOrSeachResult:function(opts){
+            new domModel(this,opts).insertCollectOrSeachResult()
         }
     })
     

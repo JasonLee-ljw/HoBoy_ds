@@ -87,30 +87,6 @@ define(['jquery','PhotoShow','CommodityDetail'], function($,photoShow,commodityD
         ]
     })
     
-    //商品详情页面
-    $('#commodities_wrap').commodityDetail({
-        commodity:{
-            title:'BADFIVE长安少年系列男子短袖文化衫',
-            price:'￥288',
-            photoFile:'../images/product/cloths/photoDetail0/'
-        },
-        commodityPhoto:[
-            {photoName:'b00',alt:''},
-            {photoName:'b01',alt:''},
-            {photoName:'b02',alt:''},
-            {photoName:'b03',alt:''},
-            {photoName:'b10',alt:''},
-            {photoName:'b11',alt:''},
-            {photoName:'b12',alt:''},
-            {photoName:'z00',alt:''},
-            {photoName:'z01',alt:''},
-            {photoName:'z02',alt:''},
-            {photoName:'z03',alt:''},
-            {photoName:'z10',alt:''},
-            {photoName:'z11',alt:''},
-            {photoName:'z12',alt:''},
-        ],  
-    })
 
     //上装商品详情页
     $('#commodities_wrap_cloths0').commodityDetail({
@@ -391,7 +367,7 @@ define(['jquery','PhotoShow','CommodityDetail'], function($,photoShow,commodityD
             color_1:'黄色',
             photoFile:'../../images/product/decorations/photoDetail0/',
             colorCounts:2,
-            
+            commodityType:'decorations',
         },
         commodityPhoto:[
             {photoName:'b00',alt:''},
@@ -427,7 +403,7 @@ define(['jquery','PhotoShow','CommodityDetail'], function($,photoShow,commodityD
             color_1:'橙色',
             photoFile:'../../images/product/decorations/photoDetail1/',
             colorCounts:2,
-            
+            commodityType:'decorations'
         },
         commodityPhoto:[
             {photoName:'b00',alt:''},
@@ -462,7 +438,7 @@ define(['jquery','PhotoShow','CommodityDetail'], function($,photoShow,commodityD
             color_1:'蓝色',
             photoFile:'../../images/product/decorations/photoDetail2/',
             colorCounts:2,
-            
+            commodityType:'decorations'
         },
         commodityPhoto:[
             {photoName:'b00',alt:''},

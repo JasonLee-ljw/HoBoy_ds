@@ -5,13 +5,14 @@ define(['jquery','domModel'],function ($,commoditiesModel) {
         this.$el = $(el);
         this.color;
         this.picURL;
-       
+        
 
     };
 
     CommodityDetail.prototype.init = function () {
         this.commodities();
         this.bigGlass();
+        this.commodityMessage();
         this.eventGather();
     }
 
@@ -473,6 +474,67 @@ define(['jquery','domModel'],function ($,commoditiesModel) {
             }
         })
     };
+
+    //录入商品信息，实现简单搜索功能
+    CommodityDetail.prototype.commodityMessage = function(){
+        let commodityURL = window.location.pathname.substring(24);
+        let commodityPicURL = $('#middlePhoto').attr('src').substring(3);
+        let commodityTitle = this.opts.commodity.title;
+        let commodityPrice = this.opts.commodity.price;
+        let commodityType = this.opts.commodity.commodityType;
+        let newCommodityObj = [{
+            newCommodityType:`${commodityType}`,
+            newCommodityURL:`${commodityURL}`,
+            newComoddityPicURL:`${commodityPicURL}`,
+            newCommodityTitle:`${commodityTitle}`,
+            newCommodityPrice:`${commodityPrice}`
+        }];
+        
+        let localMessagePost = function (obj) {
+            let localStr = localStorage.getItem(obj);
+            let localCommodityTotal = localStorage.getItem('allCommodity');
+            if(localStr === null){
+                localStorage.setItem(obj,JSON.stringify(newCommodityObj));
+                if(localCommodityTotal === null){
+                    localStorage.setItem('allCommodity',JSON.stringify(newCommodityObj))
+                }else{
+                    let newlocalCommodityTotal = JSON.parse(localCommodityTotal).concat(newCommodityObj);
+                    localStorage.setItem('allCommodity',JSON.stringify(newlocalCommodityTotal))
+                }
+            }else{
+                let localObj = JSON.parse(localStr)
+                let m = 0;
+                for(let n = 0;n<localObj.length;n++){
+                    if(newCommodityObj[0].newCommodityURL !== localObj[n].newCommodityURL){
+                        m++
+                    }else{
+                        return
+                    }
+
+                    if(m === localObj.length){
+                        let newLocalObj = JSON.parse(localStr).concat(newCommodityObj)
+                        localStorage.setItem(obj,JSON.stringify(newLocalObj)) 
+                        let newlocalCommodityTotal = JSON.parse(localCommodityTotal).concat(newCommodityObj);
+                        localStorage.setItem('allCommodity',JSON.stringify(newlocalCommodityTotal))
+                    }
+                }
+                
+            } 
+        }
+
+        //判断为哪种类型商品
+        if(commodityType === 'cloths'){
+            localMessagePost('cloths')
+        }else if(commodityType === 'trousers'){
+            localMessagePost('trousers')
+        }else if(commodityType === 'shoes'){
+            localMessagePost('shoes')
+        }else if(commodityType === 'decorations'){
+            localMessagePost('decorations')
+        }
+    
+       
+    }
     
     //商品详情界面，事件汇总
     CommodityDetail.prototype.eventGather = function () {
@@ -560,6 +622,7 @@ define(['jquery','domModel'],function ($,commoditiesModel) {
                 selfPrice = $('#commodity_price').text();
                 $('#' + $(e.target).data('id')).removeClass('isShow')
                 let newObj = [{
+                    commodityURL:`${commodityURL}`,
                     picURL:`${selfPicURL}`,
                     title:`${selfTitle}`,
                     color:`${selfColor}`,
@@ -620,7 +683,7 @@ define(['jquery','domModel'],function ($,commoditiesModel) {
             $(e.target).addClass('isActive')
         })
     }
-
+    
     CommodityDetail.DEFAULT={
         commodity:{
             title:'',

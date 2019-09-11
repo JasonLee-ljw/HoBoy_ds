@@ -1,4 +1,4 @@
-requirejs(['jquery','side_Toolbar','PhotoShow','CommodityDetail','allDialog','estimate','domModel','shopCarAndCollects','Products'],function ($,toolbar,photo,commodityDetail,dialog,dommodel,shopcar,products) {
+requirejs(['jquery','side_Toolbar','PhotoShow','CommodityDetail','allDialog','estimate','domModel','shopCarAndCollects','Products','seachResult'],function ($,toolbar,photo,commodityDetail,dialog,dommodel,shopcar,products,seach) {
     //插入页面头部
     $('#main_Wrap').insertHeader({
     });
@@ -56,7 +56,8 @@ requirejs(['jquery','side_Toolbar','PhotoShow','CommodityDetail','allDialog','es
         let pathName = window.location.pathname.substring(24)
         $('#allCollectsCounts').text(obj_1.length)
         for(let j = 0;j<obj_1.length;j++){//生成收藏夹商品列表
-            $('#collects_set-wrap').insertCollect({
+            $('#collects_set-wrap').insertCollectOrSeachResult({
+                isCollect:true,
                 collectsCommodity:{
                     commodityURL:`${obj_1[j].commodityURL}`,
                     picURL:`${obj_1[j].picURL}`,

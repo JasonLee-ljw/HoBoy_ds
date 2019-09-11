@@ -9,30 +9,26 @@
     <link rel="stylesheet" href="../css/shopCarAndCollects.css" type="text/css">
 </head>
 <body>
-    <div class="wrap shopCarAndCollects" id="main_Wrap">
+    <div class="wrap" id="main_Wrap">
         <!-- 顶部条 -->
         
-        <!--收藏夹详情-->
-        <article class="shopCar_wrap collects_wrap" id="collects_wrap">
+        <!--搜索结果详情-->
+        <article class="shopCar_wrap collects_wrap seachResult_wrap" id="seachResult_review">
             <!--下单流程-->
-            <section class="collects_logoBar">
-                <img src="../images/myCollects.jpg" alt="我的收藏夹"> 
+            <section class="collects_logoBar seach_KeyWord-wrap">
+                <span>搜索关键词：&nbsp;<em id="seach_KeyWord"></em></span>
+                <span>为您找到&nbsp;&nbsp;<em id="seach_counts"></em>&nbsp;&nbsp;件商品</span> 
             </section>
-            <section class="collects_commodityList" id="tops_set-wrap">
-                <ul class='collects_commodity-wrap' id="collects_set-wrap">
-                    <!--收藏夹商品动态插入-->
+            <section class="collects_commodityList" >
+                <ul class='collects_commodity-wrap' id="seachResult_wrap">
+                    <!--搜索结果商品动态插入-->
                 </ul>  
             </section>
-            <section class="collect_empty isShow" id="collect_empty">
-                <a href="../product/hot.html"><img src="../images/empty.png" alt="空" title="点我去添加商品"><span>您的收藏夹空空如也...</span></a>
+            <section class="collect_empty " id="seachResult_null">
+                <a href="../product/hot.html"><img src="../images/none.png" alt="空" title="点我去添加商品"><span>您搜索的商品不存在</span></a>
             </section>
             <section class="collectsCount" id="collects_goShoppingOrShopCar">
-                <div class="collectsCount-item" id="clear_Collects">
-                    <span>&nbsp;<em style="color: red" id="allCollectsCounts">0</em>&nbsp;件商品</span>
-                    <a href="javascript:;" data-id='clear_collects'>清空收藏夹</a>
-                </div>
                 <div class="collectsCount-item-1">
-                    <a href="./shopcar.html">去购物车</a>
                     <a href="../product/hot.html" >继续购物</a>
                 </div>
             </section>

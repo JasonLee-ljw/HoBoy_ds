@@ -6,10 +6,10 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>HoBoy电商网站--服饰</title>
     <link rel="stylesheet" href="../css/main/common.css" type="text/css">
-    <link rel="stylesheet" href="../css/shopCar.css" type="text/css">
+    <link rel="stylesheet" href="../css/shopCarAndCollects.css" type="text/css">
 </head>
 <body>
-    <div class="wrap" id="main_Wrap">
+    <div class="wrap shopCarAndCollects" id="main_Wrap">
         <!-- 顶部条（模块化插入） -->
         
         <!--购物车详情-->
@@ -40,6 +40,7 @@
                         <li>操作</li>
                     </ul>
                 </div>
+                <!--商品内容（实时动态加入）-->
                 
                 <div class="shopCar_empty isShow" id="shopCar_empty">
                     <a href="../product/hot.html"><img src="../images/empty.png" alt="空" title="点我去添加商品"><span>您的购物车空空如也...</span></a>
@@ -54,8 +55,8 @@
                     <ul>
                         <li class="AllselectOrDelete">
                             <input type="checkbox" id="all_Select"/>全选&nbsp;
-                            <a href="javascript:;" class="commodity_op" id="delete_selectCommodity">删除选中商品</a>
-                            <a href="javascript:;" class="commodity_op">移入收藏夹</a>
+                            <a href="javascript:;" class="commodity_op" data-id="delete_selectCommodity">删除选中商品</a>
+                            <a href="javascript:;" class="commodity_op" data-id="addToCollects_selectCommodity">移入收藏夹</a>
                             <a href="javascript:;" class="commodity_op">清空失效商品</a>
                         </li>
                         <li class="shopOrAccount"><a href="javascript:;">去结算</a></li>
