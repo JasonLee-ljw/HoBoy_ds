@@ -24,7 +24,7 @@
         </div>
 
         <!-- 菜单栏、搭配展示栏 -->
-        <div class="commu" >
+        <div class="commu" id="photoShow_Wrap">
             <div class="nav_Bar">
                 <!-- <div class="nav_Bar-1" id="sub"> -->
                     <!-- 左侧一级菜单 -->
@@ -131,11 +131,13 @@
                 </div> -->
                 
                 <!-- 每日搭配栏 -->
-                <div class="photo_Show" >
-                    <div class="photo-item">
+                <div class="photo_Show" id="photoAndControl">
+                    <div class="photo-item" id="photo-item">
+                        <span class="direction_control toLeft" data-id="direction_Control-Left" title="上一张"></span>
                         <ul class="main-i" id="photo_wrap">  
                             <li><img src="../images/weekend/{{photoShowName}}.png" alt="{{alt}}" class="img-i" id="newAttr" /></li> 
                         </ul>   
+                        <span class="direction_control toRight" data-id="direction_Control-Right" title="下一张"></span>
                     </div>
                     
                     <div class="control" id="template_control">

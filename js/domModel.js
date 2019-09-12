@@ -11,6 +11,7 @@ define(['jquery'],function($){
             this.opts.seachURL = '../'
         }else if(this.$el.hasClass('shopCarAndCollects')){
             this.opts.seachURL = '../product/'
+            this.opts.footerCode = '../images/'
         }else{
             this.opts.headerPicURL = '../images/'
             this.opts.footerCode = '../images/'

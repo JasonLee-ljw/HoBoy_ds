@@ -324,8 +324,31 @@ a{
     width: 950px;
     height: 460px;
     position: relative;
-
     overflow: hidden;
+}
+
+.photo_Show .photo-item span{
+    display: inline-block;
+    width: 75px;
+    height: 75px;
+    position: absolute;
+    top: 50%;
+    margin-top: -40px;
+    z-index: 99999;
+    cursor: pointer;
+    display: none;
+}
+
+.photo_Show .photo-item .toRight{
+    right: 3%;
+    background: url('../../images/direction-right.png') no-repeat center;
+    background-size: 75px;
+}
+
+.photo_Show .photo-item .toLeft{
+    left: 3%;
+    background: url('../../images/direction-left.png') no-repeat center;
+    background-size: 75px;
 }
 
 .photo_Show  .photo-item ul{
@@ -335,6 +358,7 @@ a{
     left: 0;
     top: 0;
     transition: all .6 linear;
+    cursor: pointer;
 }
 
 .photo_Show .photo-item li{

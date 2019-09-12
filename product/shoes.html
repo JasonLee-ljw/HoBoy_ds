@@ -31,11 +31,13 @@
             </div>
         </div>
         <!--图片轮播栏-->
-        <div class="photo_Show">
-            <div class="photo-item" >
+        <div class="photo_Show" id="photoAndControl">
+            <div class="photo-item" id="photo-item">
+                <span class="direction_control toLeft" data-id="direction_Control-Left" title="上一张"></span>
                 <ul class="main-i" id="photo_wrap-detail">  
                     <li><img src="../images/product/{{photoShowName}}.jpg" alt="{{alt}}" class="img-i" id="{{newAttr}}" /></li> 
                 </ul>  
+                <span class="direction_control toRight" data-id="direction_Control-Right" title="下一张"></span>
             </div>
             
             <div class="control" id="template_control-detail">

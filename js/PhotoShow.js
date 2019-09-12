@@ -88,20 +88,66 @@ define(['jquery'], function($) {
 
     //自动播放
     PhotoShow.prototype.AutoPlay = function () {
-        
         let selt1 = this.$el;
         let width = this.opts.moveDistances
+        let speed = this.opts.showSpeed;
         let num = 0;
-        let interval = setInterval(() => { 
-            if(num < 5){
-                selt1.css('left',num*-width + 'px');
-                $('.control-i').eq(num).addClass('bgc-black').siblings().removeClass('bgc-black')
-                num++;
-            }else{
-                selt1.css('left',0 + 'px');
-                num = 0;
+        let interval = null;
+        let autoPlay = function () {
+            interval = setInterval(() => {
+                if(num < 5){
+                    selt1.css('left',num*-width + 'px');
+                    $('.control-i').eq(num).addClass('bgc-black').siblings().removeClass('bgc-black')
+                    num++;
+                }else{
+                    selt1.css('left',0 + 'px');
+                    num = 0;
+                }
+                
+            },speed)
+        }
+        autoPlay()
+     
+        //鼠标移到图片上，两侧控制条出现
+        $('#photoAndControl').on('mouseenter',' #photo-item',function() {
+            $('.direction_control').fadeIn('slow')
+        }).on('mouseleave','#photo-item',function() {
+            $('.direction_control').fadeOut('slow')
+            if(interval === null){
+                autoPlay()
             }
-        },this.opts.showSpeed)   
+        }).on('click','span',function(e) {
+            clearInterval(interval)
+            interval = null;
+            let control = function (arg) {
+                $('.control-i').eq(arg).addClass('bgc-black').siblings().removeClass('bgc-black')
+            }
+            control(num)
+
+            //两侧控制条手动控制图片播放
+            if($(e.target).data('id') === 'direction_Control-Left'){
+                if(num !== 0){
+                    selt1.css('left', (num-1)* -width + 'px');
+                    control(num - 1)
+                    num --;  
+                }else{
+                    num = 5;
+                    selt1.css('left',-(num - 1) * width +'px')
+                    control(num - 1)
+                    num --;
+                }
+                
+            }else if($(e.target).data('id') === 'direction_Control-Right'){
+                if(num !== 5){
+                     selt1.css('left',-num * width + 'px')
+                    control(num)
+                     num++
+                }else{
+                    num = 0;
+                    selt1.css('left',-num * width +'px')
+                }
+            }
+        })
     };
 
     //默认参数

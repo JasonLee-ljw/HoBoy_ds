@@ -128,12 +128,12 @@
      text-align: center;
 }
 
-.shopCar_detail .commodity_contents .removeOrCollect a:first-child:hover{
+.shopCar_detail .commodity_contents .removeOrCollect .deleteCommodity:hover{
     color: red;
     text-decoration: underline;
 }
 
-.shopCar_detail .commodity_contents .removeOrCollect a:last-child:hover{
+.shopCar_detail .commodity_contents .removeOrCollect .addToCollects:hover{
     color: #0d31ff;
     text-decoration: underline;
 }

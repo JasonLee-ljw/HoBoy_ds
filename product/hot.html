@@ -13,7 +13,7 @@
         <!-- 顶部条 -->
         
         <!--导航菜单-->
-        <div class="commu main-3">
+        <div class="commu main-3" >
             <div class="main_Nav">
                 <ul class="main_Nav-item">
                     <li><a href="./index.html">首页</a></li>
@@ -22,11 +22,13 @@
             </div>
         </div>
         <!--图片轮播栏-->
-        <div class="photo_Show">
-            <div class="photo-item" >
+        <div class="photo_Show" id="photoAndControl">
+            <div class="photo-item" id="photo-item">
+                <span class="direction_control toLeft" data-id="direction_Control-Left" title="上一张"></span>
                 <ul class="main-i" id="photo_wrap-detail">  
                     <li><img src="../images/product/{{photoShowName}}.jpg" alt="{{alt}}" class="img-i" id="{{newAttr}}" /></li> 
                 </ul>  
+                <span class="direction_control toRight" data-id="direction_Control-Right" title="下一张"></span>
             </div>
             
             <div class="control" id="template_control-detail">
